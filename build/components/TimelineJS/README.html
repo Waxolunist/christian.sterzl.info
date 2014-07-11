@@ -1,0 +1,410 @@
+<p><strong>Table of Contents</strong></p>
+<ul>
+<li><a href="#timelinejs">TimelineJS</a><ul>
+<li><a href="#document-history-with-timelinejs">Document history with TimelineJS</a></li>
+<li><a href="#add-it-to-your-site">Add it to your site</a><ul>
+<li><a href="#using-inline-easiest">Using Inline (easiest)</a></li>
+<li><a href="#using-a-method-advanced">Using a method (advanced)</a></li>
+<li><a href="#loading-the-files">Loading the files</a></li>
+</ul>
+</li>
+<li><a href="#config-options">Config Options</a><ul>
+<li><a href="#language">Language</a></li>
+<li><a href="#start-at-end">Start at End</a></li>
+<li><a href="#start-at-slide">Start at Slide</a></li>
+<li><a href="#start-zoom-adjust">Start Zoom Adjust</a></li>
+<li><a href="#hash-bookmark">Hash Bookmark</a></li>
+<li><a href="#debug">Debug</a></li>
+<li><a href="#map-style-types">Map Style Types</a></li>
+<li><a href="#font-options">Font Options</a><ul>
+<li><a href="#font-combination-preview">Font Combination Preview:</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#file-formats">File Formats</a><ul>
+<li><a href="#json">JSON:</a></li>
+<li><a href="#jsonp-">JSONP :</a></li>
+<li><a href="#google-docs">Google Docs:</a></li>
+<li><a href="#storify">Storify:</a></li>
+</ul>
+</li>
+<li><a href="#media">Media</a></li>
+<li><a href="#best-practices">Best practices</a></li>
+<li><a href="#license">License</a></li>
+</ul>
+</li>
+</ul>
+<h1 id="timelinejs">TimelineJS</h1>
+<h2 id="document-history-with-timelinejs">Document history with TimelineJS</h2>
+<p>There are lots of timeline tools on the web but they are almost all either
+hard on the eyes or hard to use. Create timelines that are at the same time
+beautiful and intuitive for users</p>
+<p>TimelineJS is great for pulling in media from different sources. Just throw in a
+link from Twitter, YouTube, Flickr, Vimeo, Google Maps or SoundCloud and
+TimelineJS will format it to fit perfectly. More media types will be supported
+in the future.</p>
+<p>Creating one is as easy as filling in a Google spreadsheet or as detailed as
+JSON.</p>
+<h2 id="add-it-to-your-site">Add it to your site</h2>
+<h3 id="using-inline-easiest-">Using Inline (<em>easiest</em>)</h3>
+<p>Place the embed code where you want the timeline to show in the <code>&lt;body&gt;</code> of your site. See <a href="#config-options">Config Options</a> for a full list of what you can set in the config.</p>
+<pre><code class="lang-html">    &lt;div id=&quot;timeline-embed&quot;&gt;&lt;/div&gt;
+    &lt;script type=&quot;text/javascript&quot;&gt;
+        var timeline_config = {
+            width:                &#39;100%&#39;,
+            height:                &#39;600&#39;,
+            source:                &#39;path_to_json/or_link_to_googlespreadsheet&#39;,
+            embed_id:            &#39;timeline-embed&#39;,                //OPTIONAL USE A DIFFERENT DIV ID FOR EMBED
+            start_at_end:         false,                            //OPTIONAL START AT LATEST DATE
+            start_at_slide:        &#39;4&#39;,                            //OPTIONAL START AT SPECIFIC SLIDE
+            start_zoom_adjust:    &#39;3&#39;,                            //OPTIONAL TWEAK THE DEFAULT ZOOM LEVEL
+            hash_bookmark:        true,                            //OPTIONAL LOCATION BAR HASHES
+            font:                &#39;Bevan-PotanoSans&#39;,                //OPTIONAL FONT
+            debug:                true,                            //OPTIONAL DEBUG TO CONSOLE
+            lang:                &#39;fr&#39;,                            //OPTIONAL LANGUAGE
+            maptype:            &#39;watercolor&#39;,                    //OPTIONAL MAP STYLE
+            css:                &#39;path_to_css/timeline.css&#39;,        //OPTIONAL PATH TO CSS
+            js:                    &#39;path_to_js/timeline-min.js&#39;    //OPTIONAL PATH TO JS
+        }
+    &lt;/script&gt;
+    &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="using-a-method-advanced-">Using a method (<em>advanced</em>)</h3>
+<p>You could also initialize a new timeline using the <code>createStoryJS</code> method after <code>storyjs-embed.js</code> has been loaded</p>
+<pre><code class="lang-javascript">    createStoryJS({
+        type:        &#39;timeline&#39;,
+        width:        &#39;800&#39;,
+        height:        &#39;600&#39;,
+        source:        &#39;path_to_json/or_link_to_googlespreadsheet&#39;,
+        embed_id:    &#39;my-timeline&#39;            // ID of the DIV you want to load the timeline into
+    });
+</code></pre>
+<p>Here&#39;s a simple example:</p>
+<pre><code class="lang-html">    &lt;head&gt;
+        &lt;!-- jQuery --&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js&quot;&gt;&lt;/script&gt;
+        &lt;!-- BEGIN TimelineJS --&gt;
+        &lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.knightlab.com/libs/timeline/latest/js/storyjs-embed.js&quot;&gt;&lt;/script&gt;
+        &lt;script&gt;
+            $(document).ready(function() {
+                createStoryJS({
+                    type:        &#39;timeline&#39;,
+                    width:        &#39;800&#39;,
+                    height:        &#39;600&#39;,
+                    source:        &#39;path_to_json/or_link_to_googlespreadsheet&#39;,
+                    embed_id:    &#39;my-timeline&#39;
+                });
+            });
+        &lt;/script&gt;
+        &lt;!-- END TimelineJS --&gt;
+    &lt;/head&gt;
+    &lt;body&gt;    
+        &lt;div id=&quot;my-timeline&quot;&gt;&lt;/div&gt;
+    &lt;/body&gt;
+</code></pre>
+<h3 id="loading-the-files">Loading the files</h3>
+<p>If you like, you may load TimelineJS from the KnightLab&#39;s CDN. The examples above demonstrate how to do this using <code>story-embed.js</code>, which is the simplest way to set up a Timeline of your own.</p>
+<p>If for some reason you need more fine-grained control over your timeline, load the javascript and CSS files separately. We recommend that you load them from our CDN.</p>
+<pre><code class="lang-html">&lt;!-- always load the CSS --&gt;
+&lt;link rel=&quot;stylesheet&quot; type=&quot;text/css&quot; href=&quot;http://cdn.knightlab.com/libs/timeline/latest/css/timeline.css&quot;&gt;
+&lt;!-- and then one of either --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.knightlab.com/libs/timeline/latest/js/timeline.js&quot;&gt;&lt;/script&gt;
+&lt;!-- or --&gt;
+&lt;script type=&quot;text/javascript&quot; src=&quot;http://cdn.knightlab.com/libs/timeline/latest/js/timeline-min.js&quot;&gt;&lt;/script&gt;
+&lt;!-- but no need for both --&gt;
+</code></pre>
+<p>If you need to use the files on an HTTPS server, you can change the beginning of the url from <code>http://cdn.knightlab.com/libs/timeline/</code> to <code>https://s3.amazonaws.com/cdn.knightlab.com/libs/timeline/</code> </p>
+<p>If you need to serve copies of the files from your own server, use the entire contents of the <a href="https://github.com/NUKnightLab/TimelineJS/tree/master/build">&quot;/build/&quot; directory</a> of our GitHub repository. If you use a local copy of <code>story-embed.js</code> it should automatically load the other Timeline resources from your server.</p>
+<h2 id="config-options">Config Options</h2>
+<p>Here are some of the options you can set in the config.</p>
+<h3 id="source">Source</h3>
+<p><code>source</code> Should be either the path to the JSON resource to load, or a JavaScript
+object corresponding to the Timeline model.</p>
+<p>Here is an example using a data object:</p>
+<pre><code class="lang-javascript">
+    var dataObject = {timeline: {headline: &quot;Headline&quot;, type: ... }}
+    createStoryJS({
+        type:        &#39;timeline&#39;,
+        width:        &#39;800&#39;,
+        height:        &#39;600&#39;,
+        source:        dataObject,
+        embed_id:    &#39;my-timeline&#39;
+    });
+</code></pre>
+<p>If source is a string, we will try to automatically recognize resources that are
+Twitter searches, Google Spreadsheets or Storify stories. Failing that, we assume
+the source is either JSON or JSONP. If string matches on <code>.jsonp</code>, we will treat it
+as JSONP, otherwise, we will append <code>?callback=onJSONP_Data</code>. See more details below.</p>
+<h3 id="language">Language</h3>
+<p><code>lang</code>
+Localization
+<em>default is <code>en</code> English</em>
+Languages available:</p>
+<ul>
+<li><code>af</code> <em>Afrikaans</em></li>
+<li><code>ar</code> <em>Arabic</em></li>
+<li><code>hy</code> <em>Armenian</em></li>
+<li><code>eu</code> <em>Basque</em></li>
+<li><code>bg</code> <em>Bulgarian</em></li>
+<li><code>ca</code> <em>Catalan</em></li>
+<li><code>zh-cn</code> <em>Chinese</em></li>
+<li><code>hr</code> <em>Croatian / Hrvatski</em></li>
+<li><code>cz</code> <em>Czech</em></li>
+<li><code>da</code> <em>Danish</em></li>
+<li><code>nl</code> <em>Dutch</em></li>
+<li><code>en</code> <em>English</em></li>
+<li><code>en-24hr</code> <em>English (24-hour time)</em></li>
+<li><code>eo</code> <em>Esperanto</em></li>
+<li><code>et</code> <em>Estonian</em></li>
+<li><code>fo</code> <em>Faroese</em></li>
+<li><code>fa</code> <em>Farsi</em></li>
+<li><code>fi</code> <em>Finnish</em></li>
+<li><code>fr</code> <em>French</em></li>
+<li><code>gl</code> <em>Galician</em></li>
+<li><code>ka</code> <em>Georgian</em></li>
+<li><code>de</code> <em>German / Deutsch</em></li>
+<li><code>el</code> <em>Greek</em></li>
+<li><code>he</code> <em>Hebrew</em></li>
+<li><code>hu</code> <em>Hungarian</em></li>
+<li><code>is</code> <em>Icelandic</em></li>
+<li><code>id</code> <em>Indonesian</em></li>
+<li><code>it</code> <em>Italian</em></li>
+<li><code>ja</code> <em>Japanese</em></li>
+<li><code>ko</code> <em>Korean</em></li>
+<li><code>lv</code> <em>Latvian</em></li>
+<li><code>lt</code> <em>Lithuanian</em></li>
+<li><code>lb</code> <em>Luxembourgish</em></li>
+<li><code>ms</code> <em>Malay</em></li>
+<li><code>ne</code> <em>Nepali</em></li>
+<li><code>no</code> <em>Norwegian</em></li>
+<li><code>pl</code> <em>Polish</em></li>
+<li><code>pt</code> <em>Portuguese</em></li>
+<li><code>pt-br</code> <em>Portuguese (Brazilian)</em></li>
+<li><code>rm</code> <em>Romansh</em></li>
+<li><code>ru</code> <em>Russian</em></li>
+<li><code>sr-cy</code> <em>Serbian - Cyrillic</em></li>
+<li><code>sr</code> <em>Serbian - Latin</em></li>
+<li><code>si</code> <em>Sinhalese</em></li>
+<li><code>sk</code> <em>Slovak</em></li>
+<li><code>sl</code> <em>Slovenian</em></li>
+<li><code>es</code> <em>Spanish</em></li>
+<li><code>sv</code> <em>Swedish</em></li>
+<li><code>tl</code> <em>Tagalog</em></li>
+<li><code>ta</code> <em>Tamil</em></li>
+<li><code>zh-tw</code> <em>Taiwanese</em></li>
+<li><code>te</code> <em>Telugu</em></li>
+<li><code>tr</code> <em>Turkish</em></li>
+<li><code>uk</code> <em>Ukrainian</em></li>
+</ul>
+<p>Help us add more. Grab a copy of a language file and replace it with your language <a href="https://github.com/VeriteCo/StoryJS-Core/blob/master/Language/locale/en.js">Example language file</a> and find your language&#39;s <a href="http://spreadsheets.google.com/pub?key=p9pdwsai2hDMsLkXsoM05KQ&amp;gid=1">two letter code here</a></p>
+<h3 id="start-at-end">Start at End</h3>
+<p><code>start_at_end</code>
+set to true to start the timeline on the last date.
+<em>default is false</em></p>
+<h3 id="start-at-slide">Start at Slide</h3>
+<p><code>start_at_slide</code>
+You can tell TimelineJS to start at a specific slide number
+<em>default is 0</em></p>
+<h3 id="start-zoom-adjust">Start Zoom Adjust</h3>
+<p><code>start_zoom_adjust</code>
+This will tweak the default zoom level. Equivilent to pressing the zoom in or zoom out button the specified number of times. Negative numbers zoom out.
+<em>default is 0</em></p>
+<h3 id="hash-bookmark">Hash Bookmark</h3>
+<p><code>hash_bookmark</code>
+set to true to allow bookmarking slides using the hash tag
+<em>default is false</em></p>
+<h3 id="debug">Debug</h3>
+<p><code>debug</code>
+Will log events etc to the console.
+<em>default is false</em></p>
+<h3 id="map-style-types">Map Style Types</h3>
+<p>Due to recent changes to the Google Maps API, you need a <a href="https://developers.google.com/places/documentation/#Authentication">API Key</a> in order to use custom map types.
+<code>gmap_key:</code>
+<em>required in order to use maptype</em></p>
+<p><code>maptype:</code></p>
+<ul>
+<li><p><a href="http://maps.stamen.com">Stamen Maps </a></p>
+<ul>
+<li><code>toner</code></li>
+<li><code>toner-lines</code></li>
+<li><code>toner-labels</code></li>
+<li><code>watercolor</code></li>
+<li><code>sterrain</code></li>
+</ul>
+</li>
+<li><p>Google Maps</p>
+<ul>
+<li><code>ROADMAP</code></li>
+<li><code>TERRAIN</code></li>
+<li><code>HYBRID</code></li>
+<li><code>SATELLITE</code></li>
+</ul>
+</li>
+<li><p>OpenStreetMap</p>
+<ul>
+<li><code>osm</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="font-options">Font Options</h3>
+<p><code>font:</code></p>
+<ul>
+<li><code>AbrilFatface-Average</code> <em>Abril Fatface &amp; Average</em></li>
+<li><code>Arvo-PTSans</code> <em>Arvo &amp; PT Sans</em></li>
+<li><code>Bevan-PotanoSans</code> <em>Bevan &amp; Potano Sans</em></li>
+<li><code>BreeSerif-OpenSans</code> <em>Bree Serif &amp; Open Sans</em></li>
+<li><code>DroidSerif-DroidSans</code> <em>Droid Serif &amp; Droid Sans</em></li>
+<li><code>Georgia-Helvetica</code> <em>Georgia &amp; Helvetica Neue</em></li>
+<li><code>Lekton-Molengo</code> <em>Lekton &amp; Molengo</em></li>
+<li><code>Merriweather-NewsCycle</code> <em>Merriweather &amp; News Cycle</em></li>
+<li><code>NewsCycle-Merriweather</code> <em>News Cycle &amp; Merriweather</em></li>
+<li><code>NixieOne-Ledger</code> <em>Nixie One &amp; Ledger</em></li>
+<li><code>Pacifico-Arimo</code> <em>Pacifico &amp; Arimo</em></li>
+<li><code>PlayfairDisplay-Muli</code> <em>Playfair Display &amp; Muli</em></li>
+<li><code>PoiretOne-Molengo</code> <em>Poiret One &amp; Molengo</em></li>
+<li><code>PTSerif-PTSans</code> <em>PT Serif &amp; PT Sans</em></li>
+<li><code>PT</code> <em>PT Sans &amp; PT Narrow &amp; PT Serif</em></li>
+<li><code>Rancho-Gudea</code> <em>Rancho &amp; Gudea</em></li>
+<li><code>SansitaOne-Kameron</code> <em>Sansita One &amp; Kameron</em></li>
+<li>Or make your own</li>
+</ul>
+<h4 id="font-combination-preview-">Font Combination Preview:</h4>
+<p><img src="http://timeline.knightlab.com/static/img/make/font-options.png" alt="Font Combination Preview"></p>
+<h2 id="file-formats">File Formats</h2>
+<h3 id="json-">JSON:</h3>
+<p>JSON is the native data format for TimelineJS.</p>
+<p>Remember, JSON is picky. A misplaced comma or quotation mark can
+prevent the timeline from loading properly. </p>
+<p>Here is the full model:</p>
+<pre><code class="lang-javascript">
+{
+    &quot;timeline&quot;:
+    {
+        &quot;headline&quot;:&quot;The Main Timeline Headline Goes here&quot;,
+        &quot;type&quot;:&quot;default&quot;,
+        &quot;text&quot;:&quot;&lt;p&gt;Intro body text goes here, some HTML is ok&lt;/p&gt;&quot;,
+        &quot;asset&quot;: {
+            &quot;media&quot;:&quot;http://yourdomain_or_socialmedialink_goes_here.jpg&quot;,
+            &quot;credit&quot;:&quot;Credit Name Goes Here&quot;,
+            &quot;caption&quot;:&quot;Caption text goes here&quot;
+        },
+        &quot;date&quot;: [
+            {
+                &quot;startDate&quot;:&quot;2011,12,10&quot;,
+                &quot;endDate&quot;:&quot;2011,12,11&quot;,
+                &quot;headline&quot;:&quot;Headline Goes Here&quot;,
+                &quot;text&quot;:&quot;&lt;p&gt;Body text goes here, some HTML is OK&lt;/p&gt;&quot;,
+                &quot;tag&quot;:&quot;This is Optional&quot;,
+                &quot;classname&quot;:&quot;optionaluniqueclassnamecanbeaddedhere&quot;,
+                &quot;asset&quot;: {
+                    &quot;media&quot;:&quot;http://twitter.com/ArjunaSoriano/status/164181156147900416&quot;,
+                    &quot;thumbnail&quot;:&quot;optional-32x32px.jpg&quot;,
+                    &quot;credit&quot;:&quot;Credit Name Goes Here&quot;,
+                    &quot;caption&quot;:&quot;Caption text goes here&quot;
+                }
+            }
+        ],
+        &quot;era&quot;: [
+            {
+                &quot;startDate&quot;:&quot;2011,12,10&quot;,
+                &quot;endDate&quot;:&quot;2011,12,11&quot;,
+                &quot;headline&quot;:&quot;Headline Goes Here&quot;,
+                &quot;text&quot;:&quot;&lt;p&gt;Body text goes here, some HTML is OK&lt;/p&gt;&quot;,
+                &quot;tag&quot;:&quot;This is Optional&quot;
+            }
+
+        ]
+    }
+}
+</code></pre>
+<h3 id="jsonp-">JSONP :</h3>
+<p>Timeline can use a variation of JSONP to allow you to easily load data across different domains.</p>
+<p>To allow this to happen, the file must end with the extension <code>.jsonp</code></p>
+<p>Here is the full model:</p>
+<pre><code class="lang-javascript">storyjs_jsonp_data = {
+    &quot;timeline&quot;:
+    {
+        &quot;headline&quot;:&quot;The Main Timeline Headline Goes here&quot;,
+        &quot;type&quot;:&quot;default&quot;,
+        &quot;text&quot;:&quot;&lt;p&gt;Intro body text goes here, some HTML is ok&lt;/p&gt;&quot;,
+        &quot;asset&quot;: {
+            &quot;media&quot;:&quot;http://yourdomain_or_socialmedialink_goes_here.jpg&quot;,
+            &quot;credit&quot;:&quot;Credit Name Goes Here&quot;,
+            &quot;caption&quot;:&quot;Caption text goes here&quot;
+        },
+        &quot;date&quot;: [
+            {
+                &quot;startDate&quot;:&quot;2011,12,10&quot;,
+                &quot;endDate&quot;:&quot;2011,12,11&quot;,
+                &quot;headline&quot;:&quot;Headline Goes Here&quot;,
+                &quot;text&quot;:&quot;&lt;p&gt;Body text goes here, some HTML is OK&lt;/p&gt;&quot;,
+                &quot;tag&quot;:&quot;This is Optional&quot;,
+                &quot;classname&quot;:&quot;optionaluniqueclassnamecanbeaddedhere&quot;,
+                &quot;asset&quot;: {
+                    &quot;media&quot;:&quot;http://twitter.com/ArjunaSoriano/status/164181156147900416&quot;,
+                    &quot;thumbnail&quot;:&quot;optional-32x32px.jpg&quot;,
+                    &quot;credit&quot;:&quot;Credit Name Goes Here&quot;,
+                    &quot;caption&quot;:&quot;Caption text goes here&quot;
+                }
+            }
+        ],
+        &quot;era&quot;: [
+            {
+                &quot;startDate&quot;:&quot;2011,12,10&quot;,
+                &quot;endDate&quot;:&quot;2011,12,11&quot;,
+                &quot;headline&quot;:&quot;Headline Goes Here&quot;,
+                &quot;tag&quot;:&quot;This is Optional&quot;
+            }
+
+        ]
+
+    }
+}
+</code></pre>
+<h3 id="google-docs-">Google Docs:</h3>
+<p>If you don’t want to mess with JSON, fire up Google Docs and build your
+timeline in a spreadsheet. It’s as simple as dropping a date, text, and links
+into the appropriate columns in TimelineJS’s template.</p>
+<p>You can find the template here: <a href="https://drive.google.com/previewtemplate?id=0AppSVxABhnltdEhzQjQ4MlpOaldjTmZLclQxQWFTOUE&amp;mode=public&amp;pli=1#">TimelineJS Google Spreadsheet Template</a></p>
+<p>There are only a couple things you need to know in order to create a timeline
+using Google Docs:</p>
+<ol>
+<li><p>Make the spreadsheet public:<br>Google Docs are automatically set to private but the spreadsheet must be
+public.</p>
+<p>Click the blue “Share” button on the top right-hand corner. In the “Share
+settings” window, you’ll see the private setting of the spreadsheet: click
+“Change...”. In the Visibility options window, choose “Public on the Web” and
+save.</p>
+</li>
+<li><p>Publish to the Web<br>Under the File menu, select “Publish to the Web.”</p>
+<p>In the next window, check the box next to “Automatically republish when
+changes are made.” Uncheck all other boxes. Click “start publishing.” This
+will give you the URL to embed in your HTML file.</p>
+</li>
+<li><p>Copy/paste the Web URL into your TimelineJS HTML file<br>After you publish the spreadsheet, Google Docs will generate a link to the
+file. Copy the link for the Web Page option (as opposed to PDF, HTML, XLS,
+etc.), then paste it into the timeline’s HTML file (see <a href="#add-it-to-your-site">Add it to your site</a> )</p>
+</li>
+</ol>
+<h3 id="storify-">Storify:</h3>
+<p>Support for Storify is still in its early stages. It works though. Just paste a link to the storify story as the source.</p>
+<h2 id="media">Media</h2>
+<p>Included in the zip file is a kitchen sink example. This timeline shows how to
+incorporate the different media types from different services like Twitter,
+YouTube, Flickr, Instagram, TwitPic, Wikipedia, Dailymotion, SoundCloud and Vimeo.</p>
+<p>Just copy and paste the address of the media from the browser bar
+into the media parameter. TimelineJS will auto-magically pull in the media via their api and
+format it.</p>
+<h2 id="best-practices">Best practices</h2>
+<p>Tips and tricks to best utilize TimelineJS</p>
+<ol>
+<li>Keep it light - don’t get bogged down by text or other elements</li>
+<li>Pick stories that have a strong chronological narrative. It does not work well for stories that need to jump around in the timeline.</li>
+<li>Include events that build up to major occurrences, not just the major events.</li>
+<li>Don&#39;t overwhelm the user. A timeline with hundreds of events is probably not the best use of the format.</li>
+</ol>
+<h2 id="license">License</h2>
+<p>This Source Code Form is subject to the terms of the Mozilla Public
+License, v. 2.0. If a copy of the MPL was not distributed with this
+file, You can obtain one at <a href="http://mozilla.org/MPL/2.0/">http://mozilla.org/MPL/2.0/</a>.</p>

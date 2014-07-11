@@ -1,0 +1,32 @@
+@import "helper/normalize"
+@import "helper/mixin"
+@import "helper/animations"
+@import "../../../components/prism/themes/prism.css"
+
+body
+  min-width 100%
+  min-height 97%
+
+gutter = 0em
+@import "csswizardry-grids"
+
+@import "themes/colors-flat"
+
+nav-fontsize = 1.7em
+@import "themes/font-flat"
+@import "themes/animation-flat"
+@import "themes/base-flat"
+
+@import "modules/content"
+
+circles-overlap = 4%
+circles-fontsize = nav-fontsize
+@import "modules/circles"
+
+@import "modules/blog"
+@import "modules/legend"
+@import "modules/timeline"
+@import "modules/tag"
+@import "modules/filetypes"
+@import "modules/idangerous-swiper"
+//@import "helper/debug"

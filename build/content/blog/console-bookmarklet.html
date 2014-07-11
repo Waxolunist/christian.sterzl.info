@@ -1,0 +1,16 @@
+<p>author: Christian Sterzl
+date: 2013-04-30
+title: Console-Bookmarklet - A small debugging tool for mobile
+tags: bookmarklet ios safari javascript github</p>
+<h1 id="console-bookmarklet-a-small-debugging-tool-for-mobile">Console-Bookmarklet - A small debugging tool for mobile</h1>
+<p>I added some debugging code to this site to see what&#39;s going on on my iPhone. I blogged about it: <a href="/cc/blog/how-to-install-bookmarklets-in-ios">How to install Bookmarklets in iOS Safari</a>. But I didn&#39;t wanted to convolute my code with too much debugging code.</p>
+<p>So I searched again for a good bookmarklet, which plays nice on mobiles, to see the output of <em>console.log</em> but I couldn&#39;t find any.</p>
+<p>I tried <a href="https://getfirebug.com/firebuglite">Firebug Lite</a>, but this was too heavy and felt cumbersome on my iPhone. Especially, when I turned my iPhone around, I couldn&#39;t see anything of my page because Firebug took the whole screen. So, this didn&#39;t fit my needs.</p>
+<p>That&#39;s when I started to write my own. The main requirements were:</p>
+<ul>
+<li>Take the output of <em>console.log</em> and display it in a div.</li>
+<li>The div should be draggable, resizeable and closeable.</li>
+</ul>
+<p>I decided to take the existing dialog <a href="http://jqueryui.com/dialog/">JQuery UI Dialog</a> and made it touch enabled with a <a href="http://touchpunch.furf.com/">touch library</a>. The rest has been easy as I just had to take my existing debugging code and move it to my new bookmarklet.</p>
+<p>I host the code of this small utility on <a href="http://waxolunist.github.io/console-bookmarklet/">github</a>.</p>
+<p><a href="javascript:var s=document.createElement('script');s.type='text/javascript',s.src='http://waxolunist.github.io/console-bookmarklet/lib/console.js',document.getElementsByTagName('head')[0].appendChild(s);">See it in action.</a></p>

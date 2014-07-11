@@ -1,0 +1,81 @@
+<p>author: Christian Sterzl
+date: 2013-06-21
+title: Syntax Highlighter for Javascript - Prism
+tags: javascript syntax prism</p>
+<h1 id="syntax-highlighter-for-javascript-prism">Syntax Highlighter for Javascript - Prism</h1>
+<p>Have you ever been in need of a syntax highlighter for your homepage?</p>
+<p>I wanted to integrate one into my blog today and searched a long time and tried a lot of them.</p>
+<p>Finally I found a working one: <a href="http://prismjs.com">Prism</a></p>
+<p>Before that I tried following:</p>
+<ul>
+<li><a href="http://alexgorbatchev.com/wiki/SyntaxHighlighter">SyntaxHighlighter</a></li>
+<li><a href="http://code.google.com/p/google-code-prettify/">Google Code Prettify</a></li>
+<li><a href="http://softwaremaniacs.org/soft/highlight/en/">Highlight.JS Syntax Highlighter</a></li>
+<li><a href="http://startbigthinksmall.wordpress.com/2008/10/30/beautyofcode-jquery-plugin-for-syntax-highlighting/">BeautyOfCode: jQuery Plugin for Syntax Highlighting</a></li>
+<li><a href="http://prismjs.com">Prism</a></li>
+</ul>
+<p>My requirements are:</p>
+<ul>
+<li>No server side code</li>
+<li>No dependencies to frameworks such as MooTools</li>
+<li>Manually call the syntax highlighter</li>
+<li>No autoload</li>
+<li>Manually declaring the programming language</li>
+<li>Support for the most common languages</li>
+<li>Markup similar to the one markdown generates</li>
+<li>Current, active development</li>
+<li>Open Source</li>
+</ul>
+<p>I tried all 5 above, but every of it had its disadvantages, well except prism. </p>
+<p><strong>SyntaxHighlighter</strong> uses CommonJS, which I don&#39;t use and it does not support the <code>&lt;pre&gt;&lt;code&gt;</code> notation. It requires to use only the <code>pre</code>-element.</p>
+<p><strong>Prettify</strong> didn&#39;t work at all for me. I don&#39;t know what the issue has been but because I didn&#39;t wanted to waste to much time, I didn&#39;t dig into.</p>
+<p><strong>Highlight.js</strong> is pretty much straightforward and easy to integrate, but it does always try to detect automatically the language which does sometimes fail. So if I marked the code snippet as javascript like so:</p>
+<pre><code class="lang-markup">&lt;pre&gt;
+    &lt;code class=&quot;language-javascript&quot;&gt;
+    &lt;/code&gt;
+&lt;/pre&gt;
+</code></pre>
+<p>The result after running highlight.js was, no matter in which way I called the api:</p>
+<pre><code class="lang-markup">&lt;pre&gt;
+    &lt;code class=&quot;language-javascript undefined&quot;&gt;
+    &lt;/code&gt;
+&lt;/pre&gt;
+</code></pre>
+<p><strong>BeautyOfCode</strong> is a jquery plugin, not maintained and is based on an old version of SyntaxHighlighter.</p>
+<p><strong>Prism</strong> did fulfill all of my requirements. It is easy to use and uses a very appealing syntax in code and markup.</p>
+<p>Every syntax highlighter demanded for a different markup and used different hints for detecting the language. So I wrote an angular directive to convert the markup <a href="https://github.com/chjj/marked">marked</a> generates into the markup the syntax highlighter uses. For example marked adds a class <code>lang-html</code> to the code element and prism searches for <code>language-html</code>. </p>
+<pre><code class="lang-javascript">.directive(&#39;highlight&#39;, [function () {
+  return {
+    restrict: &#39;A&#39;,
+    priority: -1,
+    link: function postLink($scope, $element, $attrs) {
+      // watch the content loaded and apply the
+      // callback on change
+      $scope.$watch(&quot;r.content&quot;, function (value) {
+        var val = value || null;
+        if (val) {
+          // search all &#39;pre code&#39;-pairs and apply prism
+          $(&#39;pre code&#39;).each(function (i, e) {
+            var element = $(e),
+              classList = element.attr(&#39;class&#39;);
+            if (_.isString(classList)) {
+              classList = classList.split(/\s+/);
+              classList = classList.map(function (c) {
+                // convert lang-* to language-*
+                return c.replace(/^lang-/, &#39;language-&#39;);
+              });
+              if (classList.length &gt; 0) {
+                element.attr(&#39;class&#39;, classList.join(&#39; &#39;).trim());
+              }
+            }
+            // apply prism to the element
+            Prism.highlightElement(e, true);
+          });
+        }
+      });
+    }
+  };
+}])
+</code></pre>
+<p>This was pretty much all I needed to embed prism, besides loading the library. There is no init method, no method which runs only on <code>document.ready</code>, no dependencies.</p>
+<p>I like prism and will recommend it, if someone is in demand of a syntax highlighter, which runs on the client.</p>

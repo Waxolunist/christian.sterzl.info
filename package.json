@@ -1,0 +1,33 @@
+{
+  "name": "circlescms",
+  "version": "0.0.1",
+  "description": "My personal website christian.sterzl.info",
+  "main": "index.js",
+  "scripts": {},
+  "author": {
+    "name": "Christian Sterzl",
+    "email": "christian.sterzl@gmail.com",
+    "url": "http://openshift.redhat.com/"
+  },
+  "engines": {
+    "node": ">= 0.10.0",
+    "npm": ">= 1.0.0"
+  },
+  "private": true,
+  "license": "MIT",
+  "dependencies": {
+    "debug": "^1.0.3",
+    "metalsmith": "^0.8.1",
+    "metalsmith-assets": "0.0.1",
+    "metalsmith-ignore": "^0.1.2",
+    "metalsmith-jade": "0.0.1",
+    "metalsmith-markdown": "^0.2.1",
+    "metalsmith-stylus": "^0.1.1",
+    "metalsmith-uglify": "0.0.6",
+    "metalsmith-writemetadata": "0.0.1",
+    "minimatch": "^0.3.0"
+  },
+  "devDependencies": {
+    "livereload-static-server": "^0.1.2"
+  }
+}

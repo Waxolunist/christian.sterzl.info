@@ -1,0 +1,48 @@
+gray := #757575
+
+.blog
+.projects
+  list-style-type none
+  padding-start 0
+  &:first-child
+    border-top 1px lighten(gray,40) solid
+  > *
+    line-height 3em
+    border-bottom 1px lighten(gray,40) solid
+    overflow hidden
+  & time
+    color gray
+    text-transform uppercase
+    min-width 100px
+  & a
+    text-decoration none
+    overflow hidden
+    text-overflow ellipsis
+    white-space nowrap
+    word-wrap normal
+  > .grid
+    padding-left 0.5em
+    margin-left 0
+  & .summary
+    line-height 1.2
+    font-size 90%
+    padding-bottom 0.3em
+  & .title
+    font-size 130%
+    font-weight bold
+
+if responsive
+  @media portable-media
+    .blog
+    .projects
+      &:first-child
+        border-top none
+    
+
+//////////////////////////////////////////////////////////
+// States                                               //
+//////////////////////////////////////////////////////////
+.blog > *
+.projects > *
+  &:hover
+    background-color lighten(gray,45)

@@ -1,0 +1,26 @@
+<div id="timeline-embed" class="mypersonaltimeline"></div>
+<script type='text/javascript'>
+    createStoryJS({
+        type:           'timeline',
+        width:          '100vw',
+        height:         '600',
+        source:         '/assets/lebenslauf.json',
+        embed_id:       'timeline-embed',
+        hash_bookmark:  false, 
+        font:           'Bevan-PotanoSans',
+        lang:           'en',
+        css:            '/timeline/css/timeline.css',
+        js:             '/timeline/js/timeline.js',
+        maptype:        'ROADMAP',
+        gmap_key:       'AIzaSyDclEHoYYfabDCzyRwGQjSa08DwPe5jmUo',
+        debug:          false
+    });
+    //fix for firefox
+    setTimeout(function () {
+        console.log('fix height');
+        //$('#timeline-embed .iframe .content-container iframe').height($('#timeline-embed .iframe .content-container').height());
+        }, 2000);
+//    $('html, body').animate({
+//      scrollTop: $("nav").offset().top - 10
+//    }, 100);
+</script>

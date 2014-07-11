@@ -1,0 +1,76 @@
+header.header-primary
+.footer-wrapper
+.content-wrapper
+  overflow hidden
+
+.center
+  margin-left auto
+  margin-right auto
+
+header.header-primary
+  margin-bottom 1em
+  > *
+    margin-before 0
+    margin-top 0
+    margin-after 0
+    margin-bottom 0
+  & a
+    text-decoration none
+
+if responsive
+	@media portable-media
+    header.header-primary
+      margin-bottom 0.1em
+      h1
+        font-size 5.5vw
+      h2
+        font-size 3.4vw
+
+.content
+  background-color white
+  &.active
+    padding 1em
+
+if responsive
+	@media portable-media
+    .content
+      padding 0 0.3em
+
+footer
+  padding-bottom 5em
+  border-top 1px black solid
+
+.description
+  clear both
+  color gray
+  font-size 0.9em
+
+.subtitle
+  font-size 0.8em
+  color lighten(gray,30)
+  padding-left 1em
+
+if responsive
+	@media portable-media
+    .subtitle
+      padding-left 0
+
+//////////////////////////////////////////////////////////
+// States                                               //
+//////////////////////////////////////////////////////////
+.content
+  max-height 0
+  opacity 0
+  &.active
+    opacity 1
+    max-height none
+
+//////////////////////////////////////////////////////////
+// Animations                                           //
+//////////////////////////////////////////////////////////
+.content
+.content-wrapper
+  transition-property opacity
+
+.bounce
+  animation-name bounceIn

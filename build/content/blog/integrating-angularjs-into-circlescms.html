@@ -1,0 +1,71 @@
+<p>author: Christian Sterzl
+date: 2013-05-28
+title: Integrating AngularJS into CirclesCMS
+tags: javascript angularjs circlescms</p>
+<h1 id="integrating-angularjs-into-circlescms">Integrating AngularJS into CirclesCMS</h1>
+<p>After re-adding jQuery as dependency for executing scripts (and I had it anyway because of <a href="http://timeline.verite.co/">TimelineJS</a> - see my blogpost <a href="/cc/blog/difference-jquery.html-innerHTML.md">Difference between jQuery.html() and innerHTML</a>), I wasn&#39;t quite satisified the way my client code was structured.</p>
+<p>TimelineJS worked properly, but I couldn&#39;t use the bookmarkfeature of timelineJS, which works by reacting on the event hashchange, because I used this event already for navigating and loading of resources.</p>
+<p>At the same time I read a lot about different javascript clientside frameworks and I was very interested in <a href="http://angularjs.org">angularjs</a> by Google, which may provides exactly the feature I missed. Besides I hoped to get a better more readable and maintainable structure into my client side code. The server side was already well structured into namespaces and objects thanks to <a href="https://github.com/IndigoUnited/dejavu">dejavu</a>. </p>
+<p>AngularJS supports a so called <a href="http://docs.angularjs.org/guide/dev_guide.services.$location">HTML5-Mode</a>, which means, the page does not get reloaded, when the URL changes, and everything without misusing the hashtag, which in turn means, that I can use the bookmarkfeature of timelinejs in my cms, and it will still be a single page cms. Amazing.</p>
+<p>Because for <a href="http://www.socketstream.org/">socketstream 0.3</a> exists already the angular-plugin <a href="https://github.com/polidore/ss-angular">ss-angular</a> I wanted to try it. The documentation of ss-angular is quite ok but not thorougly. To understand the plugin you have to follow the example provided.</p>
+<p>AngularJS is developed by Google and provides exhaustive documentation and has a growing community.</p>
+<h2 id="so-how-did-i-integrate-angularjs-respectively-ss-angular-into-my-cms-">So, how did I integrate AngularJS (respectively ss-angular) into my CMS.</h2>
+<p>First of all, I had to define the <code>ng-app</code> tag on my site, by adding the attribute <code>ng-app=&#39;circlescms&#39;</code> to the html-Element of my view. That way I connect the angular-application to the view.
+<a href="http://jade-lang.com/">Jade</a> let&#39;s you define any arbitrary attribute with ease. The result reads as follows:</p>
+<pre><code class="lang-html">html(lang=&quot;en&quot;,ng-app=&#39;circlescms&#39;)
+</code></pre>
+<p>Then I had to register a controller on an element. I chose the body element.</p>
+<pre><code class="lang-markup">body(ng-controller=&#39;CCCtrl&#39;)
+</code></pre>
+<p>And I defined the content-wrapper div as viewport.</p>
+<pre><code class="lang-markup">div.content-wrapper(ng-view)
+</code></pre>
+<p>And in the entry.js file, which belongs to socketstream I had to load the modules ssAngular and controllers.</p>
+<pre><code class="lang-javascript">require(&#39;ssAngular&#39;);
+require(&#39;/controllers&#39;);
+</code></pre>
+<p>In the main file on the server side I had to add the modules and libraries to the client definition:</p>
+<pre><code class="lang-javascript">ss.client.define(&#39;newgrid&#39;, {
+  view: &#39;newgrid.jade&#39;,
+  css: [&#39;newgrid/newgrid.styl&#39;],
+  code: [&#39;app/entry.js&#39;,
+         &#39;app/controllers.js&#39;,
+         &#39;libs/jquery-2.0.0.min.js&#39;,
+         &#39;libs/angular.js&#39;
+    ],
+  tmpl: &#39;*&#39;
+});
+</code></pre>
+<p>That&#39;s it. Just 7 lines of code and angular is integrated. </p>
+<p>I could now start to write the controller code.</p>
+<p>First, I created the angular-module.</p>
+<pre><code class="lang-javascript">angular.module(&#39;circlescms&#39;, [&#39;ssAngular&#39;])
+</code></pre>
+<p>Then I configured the routes. Because I allow any url as resource except the well defined ones, such as those e.g. for static content, I wanted to call my controller on every url.</p>
+<pre><code class="lang-javascript">.config([&#39;$routeProvider&#39;, &#39;$locationProvider&#39;, function ($routeProvider, $locationProvider) {
+    $routeProvider.
+      when(&#39;/*resource&#39;, {controller: &#39;CCCtrl&#39;, templateUrl: &#39;item.html&#39;});
+    $locationProvider.html5Mode(true);
+  }])
+</code></pre>
+<p>The html5Mode is important to configure, because it is not the default.
+The parameter <code>*resource</code> is also important, as it defines not to react only on /, but on every url. The asteriks notation is not documented on the angular site, but it means basically to not stop reading the parameters after the first slash.</p>
+<p>To react on changes of the url, I defined in the controller a listener on changes of the route.</p>
+<pre><code class="lang-javascript">.controller(&#39;CCCtrl&#39;, [&#39;$scope&#39;, &#39;$location&#39;, &#39;rpc&#39;, function ($scope, $location, rpc) {
+    $scope.$on(&#39;$routeChangeSuccess&#39;, function () {
+      var path = $location.path();
+      [...]
+    });
+  }])
+</code></pre>
+<p>Now I could react on changes of the url and load the appropriate resource.</p>
+<p>ss-angular provides the result of a rpc call as <a href="http://docs.angularjs.org/api/ng.$q">$q</a> promise. That&#39;s good, because that way a callback is optional, which leads to more readable code.</p>
+<p>Thus, I can call the remote procedure as follows:</p>
+<pre><code class="lang-javascript">$scope.r = rpc(&#39;cms.loadcontent&#39;, path);
+</code></pre>
+<p>And in the template I can bind the html returned with following line:</p>
+<pre><code class="lang-markup">&lt;article id=&quot;content&quot; ng-bind-html-unsafe=&quot;r.content&quot;&gt;
+&lt;/article&gt;
+</code></pre>
+<p>That&#39;s it. The resource is catched from the server and bound to the article element.</p>
+<p>Next steps involve loading the correct template depending on the return value and some other subtleties. </p>

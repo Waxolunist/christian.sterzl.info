@@ -1,0 +1,42 @@
+<p>author: Christian Sterzl
+date: 2013-09-02
+title: Installing Oracle NoSQL
+tags: oracle nosql linux</p>
+<h1 id="installing-oracle-nosql">Installing Oracle NoSQL</h1>
+<p>For some time now are various nosql databases on my radar. I played with CouchDB, read about Apache Cassandra and MongoDB. Also Redis is on my planned feature list for my website. And last week I started reading about oracles interpretation of nosql.</p>
+<p>The best source for information about Oracle NoSQL is its homepage: <a href="http://www.oracle.com/technetwork/products/nosqldb/overview/index.html">http://www.oracle.com/technetwork/products/nosqldb/overview/index.html</a></p>
+<p>Oracles NoSQL database is a classical key-value store with a lot of features regarding high availability. The documentation is very detailed as usual. The NoSQL database comes in two flavors: Enterprise Edition and Community Edition.</p>
+<p>The database supports every system, java runs on. It requires at least a jre 6. I installed the database with jre 1.7 on an Ubuntu 13.04 server running in a Virtualbox VM. </p>
+<p>First, download the community edition of the database. I downloaded the latest version 12.1.2.1.8. After that I extracted the file to <code>/opt</code> and set a symlink:</p>
+<pre><code class="lang-bash">cd /opt
+sudo ln -s kv-2.1.8 kv
+</code></pre>
+<p>I wanted to run the database with its own user. Thus I created first the system user nosql:</p>
+<pre><code class="lang-bash">useradd -r -s /usr/sbin/nologin -d /var/kv nosql
+</code></pre>
+<p>Then I created the future data directory <code>/var/kv</code>.</p>
+<p>The details of the following steps are explained in the resources of the homepage of Oracle NoSQL. I&#39;ll keep it short (my hostname is <code>ubuntu</code> by the way):</p>
+<p><strong>Create the config</strong>:</p>
+<pre><code class="lang-bash">sudo -u nosql java -jar /opt/kv/lib/kvstore.jar makebootconfig -root /var/kv/kvroot -port 5000 -admin 5001 -host ubuntu -harange 5010,5020 -capacity 1 -num_cpus 0 -memory_mb 0
+</code></pre>
+<p><strong>Start the server</strong>:</p>
+<pre><code class="lang-bash">sudo -u nosql java -jar /opt/kv/lib/kvstore.jar start -root /var/kv/kvroot &amp;
+</code></pre>
+<p><strong>Test if the server is running</strong>:</p>
+<pre><code class="lang-bash">sudo -u nosql jps -m
+java -jar /opt/kv/lib/kvstore.jar ping -port 5000 -host ubuntu
+</code></pre>
+<p><strong>Start the admin cli</strong>:</p>
+<pre><code class="lang-bash">sudo -u nosql java -jar /opt/kv/lib/kvstore.jar runadmin -port 5000 -host ubuntu
+</code></pre>
+<p><strong>Configure the server</strong>:</p>
+<pre><code class="lang-bash">kv-&gt; configure -name mystore
+kv-&gt; plan deploy-datacenter -name &quot;VM-1&quot; -rf 3 -wait
+kv-&gt; plan deploy-sn -dc dc1 -host ubuntu -port 5000 -wait
+kv-&gt; plan deploy-admin -sn sn1 -port 5001 -wait 
+kv-&gt; pool create -name VMPool
+kv-&gt; pool join -name VMPool -sn sn1
+</code></pre>
+<p>If everything was successful you can see the result in the admin web console.</p>
+<p><img src="/assets/blog/adminconsole.png" alt="Admin Web Console" width="80%"/></p>
+<p>Now you can start playing around with Oracles NoSQL storage solution. A good start are the examples delivered together with the community edition.</p>

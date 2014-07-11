@@ -1,0 +1,17 @@
+{
+  "name": "circlescms",
+  "version": "1.0.0",
+  "homepage": "https://github.com/Waxolunist/circlescms",
+  "authors": [
+    "Christian Sterzl <christian.sterzl@gmail.com>"
+  ],
+  "description": "My personal website christian.sterzl.info",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "prism": "gh-pages",
+    "TimelineJS": "~2.33.1",
+    "requirejs": "~2.1.14",
+    "angular": "~1.2.19"
+  }
+}

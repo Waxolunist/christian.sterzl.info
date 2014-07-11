@@ -1,0 +1,13 @@
+<p>author: Christian Sterzl
+date: 2013-05-23
+title: Difference between jquery.html() and element.innerHTML
+tags: javascript jquery vanilla</p>
+<h1 id="difference-between-jquery-html-and-innerhtml">Difference between jQuery.html() and innerHTML</h1>
+<p>While I was writing the client side for <a href="https://github.com/Waxolunist/circlescms">CirclesCMS</a> I used first jQuery to remove, add and toggle classes and some selectors. After my first version was ready I thought that jQuery is a huge dependency for the client side.
+Though jQuery 2 lost some weight (about ~30kB), it was still a dependency I thought I can get rid of.</p>
+<p>I had all the functions and features of modern browsers javascript implementations in mind, such as <a href="https://developer.mozilla.org/en-US/docs/Web/API/element.classList">classList</a> or <a href="https://developer.mozilla.org/en-US/docs/Web/API/document.querySelector">querySelector</a>. jQuery seemed to me like syntactic sugar, because I didn&#39;t need huge parts of this library.</p>
+<p>So I tried to get rid of jQuery (see <a href="https://github.com/Waxolunist/circlescms/issues/3">https://github.com/Waxolunist/circlescms/issues/3</a>).</p>
+<p>After an hour or so I had only <a href="http://vanilla-js.com/">vanillaJS</a> in my client code. Wonderful. </p>
+<p>Then, some days later I tried to embed the <a href="http://timeline.verite.co/">timelineJS</a> widget. But with no luck. Because I could not execute dynamically loaded javascript (see my stackoverflow question <a href="http://stackoverflow.com/questions/16405034/load-partial-html-with-javascript-inside">http://stackoverflow.com/questions/16405034/load-partial-html-with-javascript-inside</a>).</p>
+<p>That was the moment I went back to jQuery. Because the methods to insert html are executing inlinescripts, whereas just setting the innerHTML-property does not. You can see an example in this fiddle <a href="http://jsfiddle.net/waxolunist/VDYgU/3/">jsFiddle</a>.</p>
+<p>With jQuery I can now load partial HTML with included script tags. That&#39;s a huge difference.</p>
