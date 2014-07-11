@@ -12,6 +12,8 @@
     "prism": "gh-pages",
     "TimelineJS": "~2.33.1",
     "requirejs": "~2.1.14",
-    "angular": "~1.2.19"
+    "angular": "~1.2.19",
+    "angular-route": "~1.2.19",
+    "requirejs-domready": "~2.0.1"
   }
 }

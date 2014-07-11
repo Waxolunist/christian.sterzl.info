@@ -1,0 +1,3 @@
+define([
+  './ccctrl'
+], function () {});
