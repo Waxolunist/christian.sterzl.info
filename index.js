@@ -7,7 +7,8 @@ jade = require('metalsmith-jade'),
 ignore = require('metalsmith-ignore'),
 uglify     = require('metalsmith-uglify'),
 assets = require('metalsmith-assets'),
-minimatch = require('minimatch');
+minimatch = require('minimatch'),
+watch = require('metalsmith-watch');
 
 Metalsmith(__dirname)
 .source('./resources')
@@ -18,6 +19,10 @@ Metalsmith(__dirname)
   '!styles/newgrid/newgrid.styl'
 ]))
 .use(markdown())
+.use(assets({
+  source: './components', // relative to the working directory
+  destination: './components' // relative to the build directory
+}))
 .use(stylus({
   'include css' : true,
   compress: true,
@@ -33,11 +38,10 @@ Metalsmith(__dirname)
   }
 }))
 .use(jade())
-.use(assets({
-  source: './resources/components', // relative to the working directory
-  destination: './components' // relative to the build directory
-}))
 .use(writemetadata())
+.use(watch({
+  pattern: ['**/*.js', '**/*.jade']
+}))
 .build(function(err,files) {
   if (err) { 
     debug(err); 

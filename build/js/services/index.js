@@ -1,0 +1,4 @@
+define([
+  './urlparser',
+  './content'
+], function () {});
