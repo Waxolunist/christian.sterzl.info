@@ -8,10 +8,9 @@
 
     paths: {
       'domReady': '../components/requirejs-domready/domReady',
-      'angular': '../components/angular/angular',
-      'angular-route': '../components/angular-route/angular-route',
-      'angular-resource': '../components/angular-resource/angular-resource',
-      'ByteBuffer': '../components/bytebuffer/dist/ByteBufferAB'
+      'angular': '../components/angular/angular.min',
+      'angular-route': '../components/angular-route/angular-route.min',
+      'angular-resource': '../components/angular-resource/angular-resource.min'
     },
     shim: {
       'angular': {

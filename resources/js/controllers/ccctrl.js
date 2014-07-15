@@ -1,6 +1,6 @@
 define(['./module'], function (controllers) {
   'use strict';
-controllers.controller('CCCtrl', ['$scope', '$routeParams', 'contentResource', function ($scope, $routeParams, Content) {
+controllers.controller('CCCtrl', ['$scope', '$routeParams', '$rootScope', 'contentResource', function ($scope, $routeParams, $rootScope, Content) {
 
     var loadContent = function(params, scope) {
       if(angular.isDefined(params.resource)) {
@@ -10,10 +10,7 @@ controllers.controller('CCCtrl', ['$scope', '$routeParams', 'contentResource', f
       }
     };
 
-    var isActive = function() {
-      return true;
-    };
-
+    $rootScope.isActive = true;
     loadContent($routeParams, $scope);
   }]);
 });

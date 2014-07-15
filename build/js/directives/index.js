@@ -1,4 +1,3 @@
 define([
-  './ccctrl',
-  './rootctrl'
+  './ccactive'
 ], function () {});

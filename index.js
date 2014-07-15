@@ -6,7 +6,6 @@ stylus = require('metalsmith-stylus'),
 jade = require('metalsmith-jade'),
 ignore = require('metalsmith-ignore'),
 uglify     = require('metalsmith-uglify'),
-assets = require('metalsmith-assets'),
 minimatch = require('minimatch'),
 watch = require('metalsmith-watch');
 
@@ -14,14 +13,17 @@ Metalsmith(__dirname)
 .source('./resources')
 .destination('./build')
 .use(ignore([
+  '**/.bower.json',
+  '**/*.gzip',
+  'components/**',
+  '!components/angular*/*.min.js*',
+  '!components/requirejs*/*.js',
   'styles/**/*.styl',
-  'components',
   '!styles/newgrid/newgrid.styl'
 ]))
 .use(markdown())
-.use(assets({
-  source: './components', // relative to the working directory
-  destination: './components' // relative to the build directory
+.use(writemetadata({
+  pattern: ['**/*.html']
 }))
 .use(stylus({
   'include css' : true,
@@ -38,7 +40,6 @@ Metalsmith(__dirname)
   }
 }))
 .use(jade())
-.use(writemetadata())
 .use(watch({
   pattern: ['**/*.js', '**/*.jade']
 }))
