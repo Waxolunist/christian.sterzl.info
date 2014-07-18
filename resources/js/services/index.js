@@ -1,4 +1,5 @@
 define([
-  './urlparser',
-  './content'
+  './content',
+  './templates',
+  './utils'
 ], function () {});

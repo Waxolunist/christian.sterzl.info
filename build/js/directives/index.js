@@ -1,3 +1,4 @@
 define([
-  './ccactive'
+  './ccactive',
+  './tagcloud'
 ], function () {});

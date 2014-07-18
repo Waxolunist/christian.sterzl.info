@@ -1,4 +1,5 @@
 define([
   './ccctrl',
-  './rootctrl'
+  './rootctrl',
+  './tagcloud'
 ], function () {});

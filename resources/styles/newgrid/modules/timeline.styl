@@ -43,15 +43,18 @@
         max-width none !important
       .media-wrapper
       .media-container
+        .media-shadow
+          &:before, &:after
+            display: none
         display block
       .container
         displayflex
         width 100%
       iframe
         border 0
-        width 100%
-        height 98%
-        padding-top 1%
+        width 100% !important
+        height 100% !important
+        padding-top 0
     .pad-top
       display table
       .text
@@ -72,6 +75,10 @@
     opacity 1
     max-height none
 
+  .single-img
+    .media-image.media-shadow
+      img
+        max-height 100% !important
 
 if responsive
 	@media portable-media
@@ -81,3 +88,12 @@ if responsive
       .slider-item-container
         & > .slider-item:first-child
           margin-left 8px
+
+      .iframe
+        .container
+          width 100% !important
+        &.single-img
+          .media-image.media-shadow
+            img
+              max-height: 80% !important
+              max-width: 100% !important

@@ -1,0 +1,1 @@
+<a ng-repeat="item in taglist | orderBy:'-count'" ng-class="{'active': item.tag === currentTag}" href="#!{{path}}#{{item.tag === currentTag ? '' : item.tag}}" class="tagcloud_item">{{item.tag}} ({{item.count}})</a>

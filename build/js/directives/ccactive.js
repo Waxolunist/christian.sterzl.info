@@ -25,18 +25,6 @@ define(['./module'], function (directives) {
           setClass($element, $attrs.href, resourcename, 'active');
         });
         setClass($element, $attrs.href, $routeParams.resource, 'active');
-
-        /*
-        $scope.$location = location;
-        $scope.$watch('$location.path()', function (newValue, oldValue) {
-          if ((basePath + newValue).substring(0, elementPath.length) === (elementPath) &&
-              !(newValue === '/' || newValue === basePath)) {
-            $element.addClass($attrs.ccActive);
-          } else {
-            $element.removeClass($attrs.ccActive);
-          }
-        });
-        */
       }
     };
   }]);

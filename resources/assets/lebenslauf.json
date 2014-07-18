@@ -13,6 +13,7 @@
               "endDate":"1981,12,02",
               "headline":"Birth",
               "text":"<p>I was born in Vienna.</p>",
+              "classname": "iframe single-img",
               "asset": {
                 "media": "/assets/viennahere.png"
               }
@@ -24,7 +25,7 @@
               "text": "<ul class='legend'><li class='blue'>Kindergarten</li><li class='orange'>Primary school</li><li class='red'>Secondary school</li></ul><p class='small-info'>Click on the leafs for more information.</p>",
               "classname": "iframe",
               "asset": {
-                "media": "<iframe src='/leaflet/maps/school.html'></iframe>"
+                "media": "<iframe src='/assets/leaflet/maps/school.html'></iframe>"
               }
             },
             {

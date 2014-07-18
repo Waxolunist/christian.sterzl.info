@@ -4,7 +4,8 @@ define([
   'angular-resource',
   './controllers/index',
   './directives/index',
-  './services/index'
+  './services/index',
+  './filters/index'
 ], function (ng, ngRoute, ngResource) {
   'use strict';
 
@@ -13,6 +14,7 @@ define([
     'ngResource',
     'app.controllers',
     'app.directives',
-    'app.services'
+    'app.services',
+    'app.filters'
   ]);
 });

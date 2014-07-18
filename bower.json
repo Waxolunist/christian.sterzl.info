@@ -15,6 +15,9 @@
     "angular": "~1.2.19",
     "angular-route": "~1.2.19",
     "requirejs-domready": "~2.0.1",
-    "angular-resource": "~1.2.19"
+    "angular-resource": "~1.2.19",
+    "jquery": "~2.1.1",
+    "leaflet": "~0.7.3",
+    "marked": "~0.3.2"
   }
 }

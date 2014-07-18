@@ -8,8 +8,10 @@ define(['./module'], function (services) {
         transformResponse: function (data, headers) {
           try {
             var dataObj = angular.fromJson(data);
-            var contentStr = String.fromCharCode.apply(null, dataObj.contents.data);
-            dataObj.contents = $sce.trustAsHtml(contentStr);
+            if(angular.isObject(dataObj) && dataObj.contents && dataObj.contents.data) {
+              var contentStr = String.fromCharCode.apply(null, dataObj.contents.data);
+              dataObj.contents = $sce.trustAsHtml(contentStr);
+            }
             return dataObj;
           } catch (err) {
             //SyntaxErrorException

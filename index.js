@@ -7,7 +7,10 @@ jade = require('metalsmith-jade'),
 ignore = require('metalsmith-ignore'),
 uglify     = require('metalsmith-uglify'),
 minimatch = require('minimatch'),
-watch = require('metalsmith-watch');
+watch = require('metalsmith-watch'),
+collections = require('metalsmith-collections'),
+filemetadata = require('metalsmith-filemetadata'),
+path = require('metalsmith-path');
 
 Metalsmith(__dirname)
 .source('./resources')
@@ -16,18 +19,59 @@ Metalsmith(__dirname)
   '**/.bower.json',
   '**/*.gzip',
   'components/**',
+  '!components/jquery/dist/*.min.*',
   '!components/angular*/*.min.js*',
   '!components/requirejs*/*.js',
+  '!components/leaflet/dist/**/*.*',
+  '!components/marked/lib/*',
+  '!components/TimelineJS/build/**/*.*',
   'styles/**/*.styl',
   '!styles/newgrid/newgrid.styl'
 ]))
 .use(markdown())
+.use(jade())
+.use(path())
+.use(collections({
+  projects: {
+    pattern: 'content/projects/*.html'
+  },
+  templates: {
+    pattern: 'templates/*.html'
+  }
+}))
+.use(filemetadata([
+    {pattern: "content/**/*.html", metadata: {"type": "item"}},
+    {pattern: "templates/*.html", metadata: {"type": "template"}}
+]))
 .use(writemetadata({
-  pattern: ['**/*.html']
+  pattern: ['content/**/*.html'],
+  ignorekeys: ['next', 'previous'],
+  collections: {
+    projects: {
+      output: {
+        path: 'content/projects.json',
+        asObject: true,
+        metadata: {
+          "type": "list"
+        }
+      },
+      ignorekeys: ['contents', 'next', 'previous']
+    },
+    templates: {
+      output: {
+        path: 'templates/templates.json',
+        asObject: true,
+        metadata: {
+          "type": "templates"
+        }
+      },
+      ignorekeys: ['next', 'previous']
+    }
+  }
 }))
 .use(stylus({
   'include css' : true,
-  compress: true,
+  compress: false,
   nib: true
 }))
 .use(uglify({
@@ -39,9 +83,8 @@ Metalsmith(__dirname)
     return false;
   }
 }))
-.use(jade())
 .use(watch({
-  pattern: ['**/*.js', '**/*.jade']
+  pattern: ['**/*.js', '**/*.jade', '**/*.styl']
 }))
 .build(function(err,files) {
   if (err) { 

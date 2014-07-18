@@ -11,7 +11,7 @@ html(lang="en")
     header.header-primary.grid.circles-overlap-width.center
       h1.grid__item.one-whole
         a(href='/') Christian Sterzl
-      h2.grid__item.one-whole 
+      h2.grid__item.one-whole
         a(href='/')
           | Enterprise Architect 
           nobr and Software Developer
@@ -20,8 +20,8 @@ html(lang="en")
       a.grid__item.portable-one-half.one-quarter.animated(href='#!resume',cc-active='active') Resume
       a.grid__item.portable-one-half.one-quarter.animated(href='#!projects',cc-active='active') Projects
       a.grid__item.portable-one-half.one-quarter.animated(href='#!blog',cc-active='active') Blog
-    div.content-wrapper.grid.circles-overlap-width.center.animated(ng-view)
-    div.footer-wrapper.grid.circles-overlap-width.center
+    .content-wrapper.grid.circles-overlap-width.center.animated(ng-view)
+    .footer-wrapper.grid.circles-overlap-width.center
       footer.grid__item.one-whole
     script(data-main="/js/main",src="/components/requirejs/require.min.js")
     script(type="text/javascript",src="/components/TimelineJS/build/js/storyjs-embed.js",async)
