@@ -1,7 +1,9 @@
+---
 author: Christian Sterzl
 date: 2013-09-02
 title: Installing Oracle NoSQL
 tags: oracle nosql linux
+---
 
 # Installing Oracle NoSQL
 

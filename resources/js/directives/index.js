@@ -1,4 +1,6 @@
 define([
   './ccactive',
-  './tagcloud'
+  './tagcloud',
+  './carousel',
+  './compiletemplate'
 ], function () {});

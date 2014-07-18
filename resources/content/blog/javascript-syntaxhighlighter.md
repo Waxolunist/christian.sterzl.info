@@ -1,7 +1,9 @@
+---
 author: Christian Sterzl
 date: 2013-06-21
 title: Syntax Highlighter for Javascript - Prism
 tags: javascript syntax prism
+---
 
 # Syntax Highlighter for Javascript - Prism
 

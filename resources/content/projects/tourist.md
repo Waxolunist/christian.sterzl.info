@@ -7,23 +7,12 @@ site: http://tourist.sympany.ch
 summary: Tourist Subito is a webapplication to contract a travel insurance fast and uncomplicated, which I have designed and written for Sympany.
 ---
 
-<div class="swiper-container" cc-slider>
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="/assets/projects/tourist/tourist-admin.png">
-    </div>
-    <div class="swiper-slide">
-      <img src="/assets/projects/tourist/tourist-mobile.png">
-    </div>
-    <div class="swiper-slide">
-      <img src="/assets/projects/tourist/tourist-mobile2.png">
-    </div>
-    <div class="swiper-slide">
-      <img src="/assets/projects/tourist/tourist-desktop.png">
-    </div>
-  </div>
-  <div class="swiper-pagination"></div>
-</div>
+<carousel>
+  <carousel-item ng-attr-src="/assets/projects/tourist/tourist-desktop.png"></carousel-item>
+  <carousel-item ng-attr-src="/assets/projects/tourist/tourist-admin.png"></carousel-item>
+  <carousel-item ng-attr-src="/assets/projects/tourist/tourist-mobile.png"></carousel-item>
+  <carousel-item ng-attr-src="/assets/projects/tourist/tourist-mobile2.png"></carousel-item>
+</carousel>
 
 
 # Tourist Subito

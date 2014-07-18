@@ -1,7 +1,9 @@
+---
 author: Christian Sterzl
 date: 2013-04-30
 title: Console-Bookmarklet - A small debugging tool for mobile
 tags: bookmarklet ios safari javascript github
+---
 
 # Console-Bookmarklet - A small debugging tool for mobile
 

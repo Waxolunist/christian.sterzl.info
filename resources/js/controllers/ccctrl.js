@@ -1,13 +1,13 @@
 define(['./module'], function (controllers) {
   'use strict';
-controllers.controller('CCCtrl', ['$scope', '$routeParams', '$rootScope', 'contentResource', 'templatesService', function ($scope, $routeParams, $rootScope, Content, templatesService) {
+controllers.controller('CCCtrl', ['$scope', '$routeParams', '$rootScope', '$location', '$compile', 'contentResource', 'templatesService', function ($scope, $routeParams, $rootScope, $location, $compile, Content, templatesService) {
 
     var postProcessContent = function(contentObj) {
       if(contentObj.type === 'list') {
         //set relative paths
         contentObj.result.forEach(function (val, idx, arr) {
-          var absPath = val.path;
-          val.relPath = /.*\/([^\/]+).html/.match(absPath)[1];
+          val.relPath = /.*\/([^\/]+).html/.exec(val.path)[1];
+          val.absPath = $location.path() + '/' + val.relPath;
         });
       }
     };

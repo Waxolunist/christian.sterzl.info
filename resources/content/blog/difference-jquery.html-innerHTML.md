@@ -1,7 +1,9 @@
+---
 author: Christian Sterzl
 date: 2013-05-23
 title: Difference between jquery.html() and element.innerHTML
 tags: javascript jquery vanilla
+---
 
 # Difference between jQuery.html() and innerHTML
 

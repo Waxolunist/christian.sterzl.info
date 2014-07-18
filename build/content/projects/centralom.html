@@ -1,15 +1,9 @@
 <h1 id="centralom">CentralOM</h1>
-<div class="swiper-container" cc-slider>
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="/assets/projects/centralom/cmp.png">
-    </div>
-    <div class="swiper-slide">
-      <img src="/assets/projects/centralom/webui.png">
-    </div>
-  </div>
-  <div class="swiper-pagination"></div>
-</div>
+<carousel>
+  <carousel-item ng-attr-src="/assets/projects/centralom/webui.png"></carousel-item>
+  <carousel-item ng-attr-src="/assets/projects/centralom/cmp.png"></carousel-item>
+</carousel>
+
 
 <p>CentralOM (<strong>C</strong>entral <strong>O</strong>utput<strong>M</strong>anagement) is an application I wrote for Sympany to accompany the implementation of an enveloping machine. Until then the insurance clerks wrote, printed and enveloped the daily correspondence all by themself. The departement in charge for output management (IOM) just collected the envelopes and stamped them.</p>
 <p>In order to be more productive and help the insurance clerks to loose less time, while doing their daily, Sympany leased an enveloping machine. The next thing to do was to print the correspondence in a central place. But it was not enough to just install a central printer queue for everybody. The documents had to be presorted for the enveloping machine for instance by pages, by supplements or by receiver. Another problem was deleting central printed documents. If a clerk printed for instance a wrong document or a document twice he must have the chance to delete the document from the queue as long as it is not printed by the central departement but is not allowed to delete any other documents.</p>

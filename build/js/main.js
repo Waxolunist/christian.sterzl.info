@@ -12,7 +12,8 @@
       'angular': '../components/angular/angular.min',
       'angular-route': '../components/angular-route/angular-route.min',
       'angular-resource': '../components/angular-resource/angular-resource.min',
-      'marked': '../components/marked/lib/marked'
+      'marked': '../components/marked/lib/marked',
+      'slick': '../components/slick-carousel/slick/slick.min'
     },
     shim: {
       'jQuery': {

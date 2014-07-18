@@ -1,7 +1,9 @@
+---
 author: Christian Sterzl
 date: 2013-05-28
 title: Integrating AngularJS into CirclesCMS
 tags: javascript angularjs circlescms
+---
 
 # Integrating AngularJS into CirclesCMS
 

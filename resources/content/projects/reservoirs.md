@@ -6,17 +6,12 @@ tags: python django mysql
 summary: A web application written for the Swiss Federal Office of Energy SFOE. It enables operators of reservoirs to self report statistical data about their reservoirs. Furthermore the application outputs reports of this data in different formats such as PDF or Excel.
 ---
 
-<div class="swiper-container" cc-slider>
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="/assets/projects/reservoirs/welcome.png">
-    </div>
-    <div class="swiper-slide">
-      <img src="/assets/projects/reservoirs/reports.png">
-    </div>
-  </div>
-  <div class="swiper-pagination"></div>
-</div>
+
+<carousel>
+  <carousel-item ng-attr-src="/assets/projects/reservoirs/welcome.png"></carousel-item>
+  <carousel-item ng-attr-src="/assets/projects/reservoirs/reports.png"></carousel-item>
+</carousel>
+
 
 # Reervoirs Application
 

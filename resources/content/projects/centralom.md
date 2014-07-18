@@ -8,17 +8,12 @@ summary: CentralOM (**C**entral **O**utput**M**anagement) is an application to m
 
 # CentralOM
 
-<div class="swiper-container" cc-slider>
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <img src="/assets/projects/centralom/cmp.png">
-    </div>
-    <div class="swiper-slide">
-      <img src="/assets/projects/centralom/webui.png">
-    </div>
-  </div>
-  <div class="swiper-pagination"></div>
-</div>
+
+<carousel>
+  <carousel-item ng-attr-src="/assets/projects/centralom/webui.png"></carousel-item>
+  <carousel-item ng-attr-src="/assets/projects/centralom/cmp.png"></carousel-item>
+</carousel>
+
 
 CentralOM (**C**entral **O**utput**M**anagement) is an application I wrote for Sympany to accompany the implementation of an enveloping machine. Until then the insurance clerks wrote, printed and enveloped the daily correspondence all by themself. The departement in charge for output management (IOM) just collected the envelopes and stamped them.
 

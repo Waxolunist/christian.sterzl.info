@@ -1,7 +1,9 @@
+---
 author: Christian Sterzl
 date: 2013-04-23
 title: How to install Bookmarklets in iOS Safari
 tags: bookmarklet ios safari javascript
+---
 
 # How to install Bookmarklets in iOS Safari
 

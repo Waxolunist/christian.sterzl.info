@@ -1,7 +1,9 @@
+---
 author: Christian Sterzl
 date: 2013-10-17
 title: Bower on Openshift
 tags: bower openshift
+---
 
 # Bower on Openshift
 

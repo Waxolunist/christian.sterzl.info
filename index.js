@@ -25,6 +25,10 @@ Metalsmith(__dirname)
   '!components/leaflet/dist/**/*.*',
   '!components/marked/lib/*',
   '!components/TimelineJS/build/**/*.*',
+  '!components/slick-carousel/slick/**/*.*',
+  '!components/font-awesome/css/**/*.*',
+  '!components/font-awesome/fonts/**/*.*',
+  '!components/prism/themes/prism.css',
   'styles/**/*.styl',
   '!styles/newgrid/newgrid.styl'
 ]))
@@ -34,6 +38,9 @@ Metalsmith(__dirname)
 .use(collections({
   projects: {
     pattern: 'content/projects/*.html'
+  },
+  blog : {
+    pattern: 'content/blog/*.html'
   },
   templates: {
     pattern: 'templates/*.html'
@@ -50,6 +57,16 @@ Metalsmith(__dirname)
     projects: {
       output: {
         path: 'content/projects.json',
+        asObject: true,
+        metadata: {
+          "type": "list"
+        }
+      },
+      ignorekeys: ['contents', 'next', 'previous']
+    },
+    blog: {
+      output: {
+        path: 'content/blog.json',
         asObject: true,
         metadata: {
           "type": "list"
