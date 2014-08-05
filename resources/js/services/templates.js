@@ -26,13 +26,15 @@ define(['./module'], function (services) {
 
     return {
 
-      getTemplateUrl: function (resourcename, type) {
+      getTemplateUrl: function (resourcename, collection, type) {
         var deferred = $q.defer();
         if(angular.isUndefined(templateData)) {
           templateData = loadTemplates();
         }
         templateData.$promise.then(function() {
-          var templateArray = [resourcename, type, 'html'];
+          var templateArray = [resourcename, collection, type, 'html'].filter(function (val) {
+            return angular.isString(val);
+          });
           while(templateArray.length > 0) {
             if(templatePaths.indexOf(templateName(templateArray)) > -1) {
               deferred.resolve(templateName(templateArray));

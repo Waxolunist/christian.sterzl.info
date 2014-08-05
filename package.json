@@ -17,6 +17,7 @@
   "license": "MIT",
   "dependencies": {
     "debug": "^1.0.3",
+    "highlight.js": "^8.1.0",
     "metalsmith": "^0.8.1",
     "metalsmith-collections": "^0.4.1",
     "metalsmith-filemetadata": "0.0.1",
@@ -29,7 +30,9 @@
     "metalsmith-uglify": "0.0.6",
     "metalsmith-watch": "^0.1.1",
     "metalsmith-writemetadata": "0.4.1",
-    "minimatch": "^0.3.0"
+    "minimatch": "^0.3.0",
+    "underscore": "^1.6.0",
+    "underscore.string": "^2.3.3"
   },
   "devDependencies": {
     "livereload-static-server": "^0.1.2"

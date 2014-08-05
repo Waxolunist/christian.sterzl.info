@@ -10,7 +10,26 @@ minimatch = require('minimatch'),
 watch = require('metalsmith-watch'),
 collections = require('metalsmith-collections'),
 filemetadata = require('metalsmith-filemetadata'),
-path = require('metalsmith-path');
+path = require('metalsmith-path'),
+marked = require('marked'),
+_ = require('underscore');
+_.str = require('underscore.string');
+_.mixin(_.str.exports());
+
+var mdRenderer = new marked.Renderer();
+
+//External links should open in new tab
+mdRenderer.link = function (href, title, text) {
+  var out = '<a href="' + href + '"';
+  if (title) {
+    out += ' title="' + title + '"';
+  }
+  if (_(href).startsWith('http')) {
+    out += ' target="_blank"';
+  }
+  out += '>' + text + '</a>';
+  return out;
+};
 
 Metalsmith(__dirname)
 .source('./resources')
@@ -28,11 +47,17 @@ Metalsmith(__dirname)
   '!components/slick-carousel/slick/**/*.*',
   '!components/font-awesome/css/**/*.*',
   '!components/font-awesome/fonts/**/*.*',
-  '!components/prism/themes/prism.css',
+  '!components/highlight/src/styles/default.css',
   'styles/**/*.styl',
   '!styles/newgrid/newgrid.styl'
 ]))
-.use(markdown())
+.use(markdown({
+  renderer: mdRenderer,
+  highlight: function (code) {
+    return require('highlight.js').highlightAuto(code).value;
+  },
+  langPrefix: 'hljs '
+}))
 .use(jade())
 .use(path())
 .use(collections({

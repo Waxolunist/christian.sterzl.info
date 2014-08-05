@@ -5,10 +5,6 @@
 * Use font-awesome instead of images
 * Prism
 
-## Content
-
-* Add site links
-
 ## Logic
 
 * Run in HTML5Mode

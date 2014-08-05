@@ -1,47 +1,47 @@
 <h1 id="bower-on-openshift">Bower on Openshift</h1>
-<p>Today, my website was down for several hours. The outage was not due to an outage of my hoster <a href="https://www.openshift.com/">Openshift</a> or due to some error in the code, though. It happened, because I didn&#39;t know how to install <a href="http://bower.io">bower</a> on openshift. But now I do know and I want to share.</p>
+<p>Today, my website was down for several hours. The outage was not due to an outage of my hoster <a href="https://www.openshift.com/" target="_blank">Openshift</a> or due to some error in the code, though. It happened, because I didn&#39;t know how to install <a href="http://bower.io" target="_blank">bower</a> on openshift. But now I do know and I want to share.</p>
 <p><strong>Bower</strong> is a dependency management tool for the client side. It is based on node.js and can be installed as node module. Usually, bower is installed as global module and not as an application dependency, surely it is not a runtime dependency.</p>
 <p><strong>Openshift</strong> is an awesome PAAS solution and free to use (Base package). It provides a git repository where you can push your code. After a push the application is automatically restarted. For a node application this means that <code>npm start</code> is executed. You can take some action during the start process with so called action hooks.</p>
 <p>After changing most of my client side dependencies to be managed by bower and testing the application sucessfully on my local machine I pushed my application as usual to openshift. And guess what, the application didn&#39;t start. It could not find the client side dependencies. Of course I needed to run <code>bower update</code>. I decided to run this command in the <code>pre_start</code>-action hook. But first I had to install bower. Because I didn&#39;t know how to install a global node module in openshift as comfortably as a local module during the startup phase, my website was not coming up. I found out, that it is possible to install global node modules during the startup phase.</p>
 <p>After installing bower and writing the update statement into my prestart hook it didn&#39;t work either. Bower wants to create some directories in <code>$HOME/.local</code> but openshift permits the creation of directories in your home directory. Thus I digged through the documentation of bower and searched for the variables I had to set to redirect bower into another directory. The documentation on this topic is not very exhaustive, so I started digging through the code, and through the code of its dependencies and through the code of its transitive dependencies as well. I can tell you, this was hard work, but I found the variables.</p>
-<p>Bower reads following environment variables (see <a href="https://github.com/bower/config/blob/master/lib/util/paths.js#L13">paths.js#L13</a>):</p>
+<p>Bower reads following environment variables (see <a href="https://github.com/bower/config/blob/master/lib/util/paths.js#L13" target="_blank">paths.js#L13</a>):</p>
 <ul>
 <li>XDG_DATA_HOME</li>
 <li>XDG_CONFIG_HOME</li>
 <li>XDG_CACHE_HOME</li>
 </ul>
-<p>These variables are specified by <a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html">freedesktop.org&#39;s basedir specification</a>.</p>
+<p>These variables are specified by <a href="http://standards.freedesktop.org/basedir-spec/basedir-spec-latest.html" target="_blank">freedesktop.org&#39;s basedir specification</a>.</p>
 <p>So finally I came up with following solution.</p>
 <ol>
 <li><p>Declare bower in your devDependencies section of package.json. This is an optional step:</p>
-<pre><code class="lang-javascript">&quot;devDependencies&quot;: {
- [...]
- &quot;bower&quot;: &quot;1.2.x&quot;
+<pre><code class="hljs javascript"><span class="hljs-string">"devDependencies"</span>: {
+ [<span class="hljs-keyword">...</span>]
+ <span class="hljs-string">"bower"</span>: <span class="hljs-string">"1.2.x"</span>
 },
 </code></pre>
 </li>
 <li><p>Create a file for the install script e.g. <code>bower_update</code> with following content:</p>
-<pre><code class="lang-bash">#!/bin/bash
+<pre><code class="hljs bash"><span class="hljs-shebang">#!/bin/bash
+</span>
+<span class="hljs-keyword">export</span> XDG_DATA_HOME=<span class="hljs-variable">$OPENSHIFT_DATA_DIR</span>/.local
+<span class="hljs-keyword">export</span> XDG_CONFIG_HOME=<span class="hljs-variable">$OPENSHIFT_DATA_DIR</span>/.config
+<span class="hljs-keyword">export</span> XDG_CACHE_HOME=<span class="hljs-variable">$OPENSHIFT_DATA_DIR</span>/.cache
+<span class="hljs-built_in">cd</span> <span class="hljs-variable">$OPENSHIFT_REPO_DIR</span>
 
-export XDG_DATA_HOME=$OPENSHIFT_DATA_DIR/.local
-export XDG_CONFIG_HOME=$OPENSHIFT_DATA_DIR/.config
-export XDG_CACHE_HOME=$OPENSHIFT_DATA_DIR/.cache
-cd $OPENSHIFT_REPO_DIR
-
-if hash bower 2&gt;/dev/null; then
- echo &quot;Install bower:&quot;
+<span class="hljs-keyword">if</span> <span class="hljs-built_in">hash</span> bower <span class="hljs-number">2</span>&gt;/dev/null; <span class="hljs-keyword">then</span>
+ <span class="hljs-built_in">echo</span> <span class="hljs-string">"Install bower:"</span>
  npm install -g bower
-fi
+<span class="hljs-keyword">fi</span>
 
 bower update
 </code></pre>
 </li>
 <li><p>Make this file executable:</p>
-<pre><code class="lang-bash">chmod a+x bower_update
+<pre><code class="hljs bash">chmod <span class="hljs-operator">a</span>+x bower_update
 </code></pre>
 </li>
 <li><p>Source it in your pre_start_nodejs script:</p>
-<pre><code class="lang-bash">. &quot;$OPENSHIFT_REPO_DIR/.openshift/lib/bower_update&quot;
+<pre><code class="hljs bash">. <span class="hljs-string">"<span class="hljs-variable">$OPENSHIFT_REPO_DIR</span>/.openshift/lib/bower_update"</span>
 </code></pre>
 </li>
 </ol>

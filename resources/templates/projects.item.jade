@@ -1,6 +1,6 @@
-article#content.project.content.grid__item.one-whole.animated(ng-class='{\'active\': isActive}', ng-hide='isLoading')
-    div(ng-bind-html-unsafe='contentCompiled')
-      .grid
-        .grid__item.one-whole.taglist
-          .tag(ng-repeat='tag in r.tags | split') {{tag}}
-      a.externalLink(href='{{r.site}}', title='{{r.name}}', ng-show='r.site') {{r.name}}
+article#content.project.content.grid__item.one-whole.active
+    div(ng-bind-html='res.contents', compile-template)
+    .grid
+      .grid__item.one-whole.taglist
+        .tag(ng-repeat='tag in res.tags | split') {{tag}}
+    a.externalLink(href='{{res.site}}', title='{{res.name}}', ng-show='res.site', target="_blank") {{res.name}}

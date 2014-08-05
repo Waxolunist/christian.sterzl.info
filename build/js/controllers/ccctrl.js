@@ -17,7 +17,7 @@ controllers.controller('CCCtrl', ['$scope', '$routeParams', '$rootScope', '$loca
         Content.get({path: params.resource}, function(contentObj, header) {
           postProcessContent(contentObj);
           scope.res = contentObj;
-          templatesService.getTemplateUrl(params.resource, contentObj.type).then(function(templateUrl) {
+          templatesService.getTemplateUrl(params.resource, contentObj.collection, contentObj.type).then(function(templateUrl) {
             scope.templateUrl = templateUrl;
           });
         });

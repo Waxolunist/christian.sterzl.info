@@ -1,6 +1,6 @@
 @import url("../../components/slick-carousel/slick/slick.css");
 @import url("../../components/font-awesome/css/font-awesome.min.css");
-@import url("../../components/prism/themes/prism.css");
+@import url("../../components/highlight/src/styles/default.css");
 article,
 aside,
 details,
