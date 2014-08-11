@@ -13,7 +13,8 @@ define(['./module', 'slick'], function (directives) {
       link: function($scope, $element) {
         $element.slick({
           autoplay: true,
-          dots: true
+          dots: true,
+          speed: 600
         });
       }
     };

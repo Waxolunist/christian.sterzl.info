@@ -3,7 +3,7 @@
 ## Design
 
 * Use font-awesome instead of images
-* Prism
+* Use more prebuilt functions (like nib)
 
 ## Logic
 
@@ -18,3 +18,8 @@
 ## CouchDB
 
 * Run as CouchApp
+
+## Maintenance
+
+* Update normalize.css
+* Update csswizardry grid

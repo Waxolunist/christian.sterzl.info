@@ -4,6 +4,7 @@
 define([
   'require',
   'angular',
+  'domReady',
   'app',
   'config'
 ], function (require, ng) {

@@ -18,8 +18,8 @@ define(['./module'], function (services) {
     var loadTemplates = function () {
       return templateResource.get({}, function(data, header) {
         data.result.forEach(function(item) {
-          $templateCache.put(item.path, String.fromCharCode.apply(null, item.contents.data));
-          templatePaths.push(item.path);
+          $templateCache.put(templateBase + item.path, String.fromCharCode.apply(null, item.contents.data));
+          templatePaths.push(templateBase + item.path);
         }); 
       });
     };

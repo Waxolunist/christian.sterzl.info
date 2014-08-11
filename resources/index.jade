@@ -8,13 +8,17 @@ html(lang="en")
     base(href='/')
     link(rel='stylesheet', href='/styles/newgrid/newgrid.css', type='text/css' )
   body
-    header.header-primary.grid.circles-overlap-width.center
-      h1.grid__item.one-whole
-        a(href='/') Christian Sterzl
-      h2.grid__item.one-whole
-        a(href='/')
-          | Enterprise Architect 
-          nobr and Software Developer
+    .grid.center.circles-overlap-width
+      .grid__item.one-eighth
+        .avatar
+      .grid__item.seven-eighths
+        header.header-primary.grid
+          h1.grid__item.one-whole
+            a(href='/') Christian Sterzl
+          h2.grid__item.one-whole
+            a(href='/')
+              | Enterprise Architect 
+              nobr and Software Developer
     nav.nav-primary.grid.circles.circles-overlap.center.animated(ng-class="{'active': isActive}")
       a.grid__item.portable-one-half.one-quarter.animated(href='#!about',cc-active='active') About
       a.grid__item.portable-one-half.one-quarter.animated(href='#!resume',cc-active='active') Resume
@@ -23,8 +27,8 @@ html(lang="en")
     .content-wrapper.grid.circles-overlap-width.center.animated(ng-view)
     .footer-wrapper.grid.circles-overlap-width.center
       footer.grid__item.one-whole
-    script(data-main="/js/main",src="/components/requirejs/require.min.js")
-    script(type="text/javascript",src="/components/TimelineJS/build/js/storyjs-embed.js",async)
+    script(data-main="/js/main",src="/js/require.js")
+    script(type="text/javascript",src="/js/TimelineJS/js/storyjs-embed.js",async)
     script(async)
       //window.setTimeout(function() {
       //(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

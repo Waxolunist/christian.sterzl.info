@@ -8,7 +8,7 @@ define(['./module'], function (directives) {
       scope: {
         tagSource: '&'
       },
-      controller: function ($scope, $element, $attrs) {
+      controller: ['$scope', '$element', '$attrs', function ($scope, $element, $attrs) {
         var tagObject = utils.wordcount($scope.tagSource(), $attrs.tagField, $attrs.tagDelimiter),
             tagArray = Object.keys(tagObject).map(function (key) {
               return {
@@ -19,7 +19,7 @@ define(['./module'], function (directives) {
         $scope.taglist = tagArray;
         $scope.path = $location.path();
         $scope.currentTag = $location.hash();
-      }
+      }]
     };
   }]);
 });
