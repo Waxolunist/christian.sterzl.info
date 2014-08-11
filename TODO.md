@@ -14,12 +14,10 @@
 * Install on server
 * Serve static with nginx
 * Install git hook
-
-## CouchDB
-
-* Run as CouchApp
+* Test Thesis Download
 
 ## Maintenance
 
 * Update normalize.css
 * Update csswizardry grid
+* Thesis Link to Beha needs name
