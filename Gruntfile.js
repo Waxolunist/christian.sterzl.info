@@ -375,7 +375,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-metalsmith');
   grunt.loadNpmTasks('grunt-contrib-connect');
-  grunt.loadNpmTasks('grunt-bower-install');
 
   // Default task(s).
   grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy']);
