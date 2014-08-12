@@ -16,7 +16,6 @@
   "license": "MIT",
   "devDependencies": {
     "grunt-contrib-clean": "^0.6.0",
-    "grunt-contrib-connect": "^0.8.0",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-jade": "^0.12.0",
     "grunt-contrib-requirejs": "^0.4.4",
@@ -26,7 +25,6 @@
     "grunt-debug-task": "^0.1.5",
     "grunt-metalsmith": "0.0.1",
     "highlight.js": "^8.1.0",
-    "livereload-static-server": "^0.1.2",
     "marked": "^0.3.2",
     "metalsmith-collections": "^0.4.1",
     "metalsmith-filemetadata": "0.0.1",
@@ -42,7 +40,7 @@
     "koa": "^0.9.0",
     "koa-compress": "^1.0.7",
     "koa-file-server": "^2.2.2",
-    "koa-livereload": "^0.1.23"
+    "koa-static": "^1.4.6"
   },
   "scripts": {
     "start": "node --harmony server.js"

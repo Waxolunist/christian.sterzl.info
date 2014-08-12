@@ -167,19 +167,24 @@ module.exports = function(grunt) {
     },
     jade: {
       compile: {
+        options: {
+          data: {
+            debug: (process.env.DEBUG === 'true')  
+          }
+        },
         files: [
           {
-          src: src + '/index.jade',
-          dest: target + '/index.html'
-        },
-        {
-          cwd: src + '/templates',
-          src: '*.jade',
-          dest: target + '/templates',
-          expand: true,
-          ext: '.html',
-          extDot: 'last'
-        }
+            src: src + '/index.jade',
+            dest: target + '/index.html'
+          },
+          {
+            cwd: src + '/templates',
+            src: '*.jade',
+            dest: target + '/templates',
+            expand: true,
+            ext: '.html',
+            extDot: 'last'
+          }
         ]  
       }
     },
@@ -375,6 +380,13 @@ module.exports = function(grunt) {
         options: {
           reload: true
         }
+      },
+      server: {
+        files: ['server.js'],
+        tasks: ['npmstart'],
+        options: {
+          reload: true
+        }
       }
     }
   });
@@ -390,7 +402,7 @@ module.exports = function(grunt) {
 
   // Default task(s).
   grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy']);
-  grunt.registerTask('with-update', ['bowerupdate', 'npmupdate', 'build']);
+  grunt.registerTask('update', ['bowerupdate', 'npmupdate', 'build']);
+  grunt.registerTask('release', ['build']);
   grunt.registerTask('default', ['build', 'npmstart', 'watch']);
-
 };
