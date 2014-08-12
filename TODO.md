@@ -5,6 +5,9 @@
 * Use font-awesome instead of images
 * Use more prebuilt functions (like nib)
 
+* Update normalize.css
+* Update csswizardry grid
+
 ## Logic
 
 * Run in HTML5Mode
@@ -14,17 +17,16 @@
 * Install on server
 * Serve static with nginx
 * Install git hook
-* Test Thesis Download
+
+## Functionality
+
+* Thesis Link to Beha needs name
 
 ## Maintenance
 
-* Update normalize.css
-* Update csswizardry grid
-* Thesis Link to Beha needs name
 * Grunt image optimization
-* JSON minification
+* JSON minification (writefilemetadata needs update or new option)
 * Linting (ES6)
 * Search
-* Add livereload option to koa if in dev mode
 * JSHint
 * Open browser on grunt?
