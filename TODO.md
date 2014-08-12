@@ -5,6 +5,8 @@
 * Use font-awesome instead of images
 * Use more prebuilt functions (like nib)
 
+* Change header style on scrolling
+
 * Update normalize.css
 * Update csswizardry grid
 
