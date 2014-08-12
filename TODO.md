@@ -13,6 +13,7 @@
 ## Logic
 
 * Run in HTML5Mode
+* Add metalsmith drafts module
 
 ## Server
 

@@ -374,9 +374,22 @@ module.exports = function(grunt) {
           livereload: true
         }
       },
-      config: {
-        files: ['Gruntfile.js', 'bower.json', 'package.json'],
-        tasks: ['bowerupdate', 'npmupdate'],
+      configGrunt: {
+        files: ['Gruntfile.js'],
+        options: {
+          reload: true
+        }
+      },
+      configNpm: {
+        files: ['package.json'],
+        tasks: ['npmupdate'],
+        options: {
+          reload: true
+        }
+      },
+      configBower: {
+        files: ['bower.json'],
+        tasks: ['bowerupdate'],
         options: {
           reload: true
         }
