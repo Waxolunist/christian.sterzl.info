@@ -44,6 +44,14 @@ module.exports = function(grunt) {
     });
   });
 
+  grunt.registerTask('npmstart', 'start node', function() {
+    var exec = require('child_process').exec;
+    exec('npm start', {cwd: '.'}, function(err, stdout, stderr) {
+      console.log(stdout);
+    });
+  });
+
+
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
@@ -136,6 +144,25 @@ module.exports = function(grunt) {
           dest: target + '/assets'
         }
         ]
+      },
+      javascript: {
+        files: [
+          {
+            expand: true,
+            cwd: src,
+            src: [
+              'js/**/*.js',
+              'components/requirejs-domready/domReady.js',
+              'components/jquery/dist/jquery.js',
+              'components/angular/angular.js',
+              'components/angular-route/angular-route.js',
+              'components/angular-resource/angular-resource.js',
+              'components/marked/lib/marked.js',
+              'components/slick-carousel/slick/slick.js'
+            ],
+            dest: target
+          }
+        ]
       }
     },
     jade: {
@@ -161,7 +188,7 @@ module.exports = function(grunt) {
         options: {
           baseUrl: src + '/js/',
           mainConfigFile: src + '/js/main.js',
-          out: target + '/js/main.js',
+          out: target + '/js/main.min.js',
           name: 'main',
           optimize: 'uglify2',
           uglify2: {
@@ -349,20 +376,6 @@ module.exports = function(grunt) {
           reload: true
         }
       }
-    },
-    connect: {
-      dist: {
-        options: {
-          port: 3000,
-          base: 'dist',
-          livereload: true
-        },
-        livereload: {
-          options: {
-            open: true
-          }
-        }
-      }
     }
   });
 
@@ -374,11 +387,10 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-metalsmith');
-  grunt.loadNpmTasks('grunt-contrib-connect');
 
   // Default task(s).
   grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy']);
   grunt.registerTask('with-update', ['bowerupdate', 'npmupdate', 'build']);
-  grunt.registerTask('default', ['build', 'connect', 'watch']);
+  grunt.registerTask('default', ['build', 'npmstart', 'watch']);
 
 };

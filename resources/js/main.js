@@ -8,20 +8,20 @@
 
     paths: {
       'domReady': '../components/requirejs-domready/domReady',
-      'jQuery': '../components/jquery/dist/jquery.min',
-      'angular': '../components/angular/angular.min',
-      'angular-route': '../components/angular-route/angular-route.min',
-      'angular-resource': '../components/angular-resource/angular-resource.min',
+      'jquery': '../components/jquery/dist/jquery',
+      'angular': '../components/angular/angular',
+      'angular-route': '../components/angular-route/angular-route',
+      'angular-resource': '../components/angular-resource/angular-resource',
       'marked': '../components/marked/lib/marked',
-      'slick': '../components/slick-carousel/slick/slick.min'
+      'slick': '../components/slick-carousel/slick/slick'
     },
     shim: {
-      'jQuery': {
-        exports: 'jQuery'
+      'jquery': {
+        exports: 'jquery'
       },
       'angular': {
         exports: 'angular',
-        deps: ['jQuery']
+        deps: ['jquery']
       },
       'angular-route': {
         deps: ['angular']
