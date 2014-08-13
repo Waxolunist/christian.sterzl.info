@@ -6,7 +6,8 @@ var root = __dirname + '/dist';
 var koa = require('koa'),
     compress = require('koa-compress'),
     files = require('koa-file-server'),
-    serve = require('koa-static');
+    serve = require('koa-static'),
+    rewrite = require('koa-rewrite');
 
 var debug = (process.env.DEBUG === 'true');     
 var app = koa();
@@ -18,6 +19,9 @@ app.use(function *(next){
 });
 
 app.use(compress());
+
+var regex = /^(?:.+\.(?!(?:html|css)$))?(?:[^.]+$)/i;
+app.use(rewrite(regex, '/index.html'));
 
 //serve is somewhat slower, files more sophisticated, but does not support livereload because of caching
 if(debug) {

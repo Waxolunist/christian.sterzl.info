@@ -19,6 +19,6 @@ define(['./app'], function (app) {
         //templateUrl: 'templates/item.html'
     });
     $locationProvider.hashPrefix('!');
-    //$locationProvider.html5Mode(true);
+    $locationProvider.html5Mode(true);
   }]);
 });
