@@ -360,7 +360,7 @@ module.exports = function(grunt) {
       },
       js: {
         files: [src + '/js/**/*.js'],
-        tasks: ['requirejs'],
+        tasks: ['requirejs', 'copy:javascript'],
         options: {
           spawn: false,
           livereload: true

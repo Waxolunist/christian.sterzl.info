@@ -20,7 +20,7 @@ app.use(function *(next){
 
 app.use(compress());
 
-var regex = /^(?:.+\.(?!(?:html|css)$))?(?:[^.]+$)/i;
+var regex = /^(?:.+\.(?!(?:png|gif|pdf|json|js|map|eot|svg|ttf|woff|html|css)$))?(?:[^.]+$)/i;
 app.use(rewrite(regex, '/index.html'));
 
 //serve is somewhat slower, files more sophisticated, but does not support livereload because of caching

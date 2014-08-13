@@ -10,8 +10,9 @@ define(['./module'], function (directives) {
       priority: -1,
       link: function postLink($scope, $element, $attrs) {
         var setClass = function(element, href, resourcename, classname) {
-          var regex = new RegExp('^' + href + '(:?/.*)?$','gi');
-          if(regex.test('#!' + resourcename)) {
+          var splitHref = /^(?:#!|[\/])([^\/]+)(?:[\/].*)?$/i,
+              splitResourcename = /^([^\/]+)(?:[\/].*)?$/i;
+          if(splitHref.exec(href)[1] === splitResourcename.exec(resourcename)[1]) {
             element.addClass(classname); 
           } else {
             element.removeClass(classname);

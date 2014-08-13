@@ -8,7 +8,7 @@ In addition to my experiences in the world of Java Development, I had the chance
 
 ## Projects and Open Source
 
-In the [projects section](#!/projects) I list most of my projects and name the technologies and frameworks I used to accomplish my tasks. I did some of these projects at work and some in my spare time. I share most of the work I do on my own on github as open source software. I benefit every day in my programmer's life from the availability of open source software. I therefore want to make my own contribution.
+In the [projects section](/projects) I list most of my projects and name the technologies and frameworks I used to accomplish my tasks. I did some of these projects at work and some in my spare time. I share most of the work I do on my own on github as open source software. I benefit every day in my programmer's life from the availability of open source software. I therefore want to make my own contribution.
 
 The most important open source projects I started are [validationconstraints](http://waxolunist.github.io/validationconstraints/), [bootstrap3-wysihtml5-bower](https://github.com/Waxolunist/bootstrap3-wysihtml5-bower) and [circlescms](https://github.com/Waxolunist/circlescms), which is the content management system this site runs on. I felt a need for developing circlescms due to the lack of extreme simple systems and out of curiosity for the node platform.  My contribution to other open source projects consists mainly on discussions, helping users, reporting bugs and sometimes providing patches.
 
