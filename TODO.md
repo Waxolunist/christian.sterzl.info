@@ -12,7 +12,7 @@
 
 ## Logic
 
-* Run in HTML5Mode
+* ~~Run in HTML5Mode~~
 * Add metalsmith drafts module
 
 ## Server
@@ -29,8 +29,7 @@
 ## Maintenance
 
 * Grunt image optimization
-* JSON minification (writefilemetadata needs update or new option)
+* ~~JSON minification (writefilemetadata needs update or new option)~~
 * Linting (ES6)
 * Search
-* JSHint
 * Open browser on grunt?
