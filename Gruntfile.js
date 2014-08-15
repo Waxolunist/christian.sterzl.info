@@ -416,6 +416,5 @@ module.exports = function(grunt) {
   // Default task(s).
   grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy']);
   grunt.registerTask('update', ['bowerupdate', 'npmupdate', 'build']);
-  grunt.registerTask('release', ['build']);
   grunt.registerTask('default', ['build', 'npmstart', 'watch']);
 };

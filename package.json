@@ -15,6 +15,7 @@
   "private": true,
   "license": "MIT",
   "devDependencies": {
+    "chainer": "0.0.5",
     "grunt-contrib-clean": "^0.6.0",
     "grunt-contrib-copy": "^0.5.0",
     "grunt-contrib-jade": "^0.12.0",
@@ -32,18 +33,28 @@
     "metalsmith-markdown": "^0.2.1",
     "metalsmith-path": "^0.1.0",
     "metalsmith-writemetadata": "0.4.2",
+    "qunit": "^0.7.2",
     "rjs-build-analysis": "0.0.3",
     "underscore": "^1.6.0",
     "underscore.string": "^2.3.3"
   },
   "dependencies": {
+    "download": "^0.2.1",
+    "fs.extra": "^1.2.1",
+    "gith": "^1.0.4",
     "koa": "^0.9.0",
     "koa-compress": "^1.0.7",
     "koa-file-server": "^2.2.2",
     "koa-rewrite": "^1.1.0",
-    "koa-static": "^1.4.6"
+    "koa-static": "^1.4.6",
+    "uuid": "^1.4.1"
   },
   "scripts": {
     "start": "node --harmony server.js"
+  },
+  "_hook": {
+    "port": 9001,
+    "branch": "master",
+    "repo": "Waxolunist/christian.sterzl.info"
   }
 }

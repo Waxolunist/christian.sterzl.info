@@ -2,3 +2,4 @@ node_modules
 resources/components
 dist
 npm-debug.log
+coverage
