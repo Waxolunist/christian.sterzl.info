@@ -1,24 +1,44 @@
 var fs = require('fs'),
-hook = require('../../lib/hook');
+    path = require('path'),
+    statik = require('node-static'),
+    _ = require('underscore'),
+    hook = require('../../lib/hook');
 
 test('Download ZIP', function (){
   stop();
+  expect(7);
 
-  expect(1);
+  var testExists = function (p) {
+    ok(p && fs.existsSync(p), 'Downloaded file exists.');
+
+    //unpack
+    hook._util.unpackZip(p, function(d) {
+      ok(d, 'Parameter is defined.');
+      ok(fs.existsSync(d), 'Destination exists.');
+      fs.stat(d, function(err, stats) {
+        ok(stats.isDirectory(), 'Destination is a directory.'); 
+        
+        //verify and get directory
+        hook._util.verify(d, 'Waxolunist/christian.sterzl.info', 'master', function(p) {
+          console.log('Verify %s', p);
+          ok(!_.isUndefined(p), 'Destination verified');
+          equal(path.basename(p), 'christian.sterzl.info-master', 'Basename verified');
+          
+          //call build
+          hook._util.build(p, function(err) {
+            ok(_.isUndefined(err), 'Grunt task executed successful.');
+            start();
+          });
+        });
+      });
+    });
+  };
 
   setTimeout(function() {
-   var testExists = function (path) {
-     console.log(path);
-     start();
-     return path && fs.existsSync(path);
-   };
-
-   try {
-     ok(hook._util.downloadZip(testExists), 'Downloaded file does not exist.');
-   } catch (err) {
-     console.log(err);
-   }
-
+    try {
+     hook._util.downloadZip('http://localhost:3000', 'resources', 'master', testExists);
+    } catch (err) {
+      console.log(err);
+    }
   }, 0);
-
 });
