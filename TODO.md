@@ -10,6 +10,13 @@
 * Update normalize.css
 * Update csswizardry grid
 
+* Compatibility with IE11
+  * Width of Body
+  * Slider height
+* Compatibility with iOS
+  * Size of avatar
+  * Size of slider
+
 ## Logic
 
 * ~~Run in HTML5Mode~~
@@ -17,9 +24,9 @@
 
 ## Server
 
-* Install on server
-* Serve static with nginx
-* Install git hook
+* ~~Install on server~~
+* ~~Serve static with nginx~~
+* ~~Install git hook~~
 
 ## Functionality
 
