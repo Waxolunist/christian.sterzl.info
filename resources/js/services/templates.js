@@ -1,6 +1,6 @@
 define(['./module'], function (services) {
   'use strict';
-  services.factory('templatesService', ['$resource', '$templateCache', '$q', function ($resource, $templateCache, $q) {
+  services.factory('templatesService', ['$resource', '$templateCache', '$q', 'utils', function ($resource, $templateCache, $q, utils) {
 
     var templatePaths = [],
         templateResource = $resource('/templates/templates.json', {}, {
@@ -18,7 +18,7 @@ define(['./module'], function (services) {
     var loadTemplates = function () {
       return templateResource.get({}, function(data, header) {
         data.result.forEach(function(item) {
-          $templateCache.put(templateBase + item.path, String.fromCharCode.apply(null, item.contents.data));
+          $templateCache.put(templateBase + item.path, utils.readBuffer(item.contents));
           templatePaths.push(templateBase + item.path);
         }); 
       });

@@ -18,6 +18,14 @@ define(['./module'], function (services) {
           return prev;
         }, {});
         return retVal;
+      },
+
+      readBuffer: function(buffer) {
+        if (buffer && angular.isArray(buffer)) {
+          return String.fromCharCode.apply(null, buffer);
+        } else if (buffer && angular.isObject(buffer) && buffer.data) {
+          return String.fromCharCode.apply(null, buffer.data);
+        }
       }
     };
   }]);
