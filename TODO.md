@@ -14,8 +14,10 @@
   * Width of Body
   * Slider height
 * Compatibility with iOS
-  * Size of avatar
+  * ~~Size of avatar~~
   * Size of slider
+
+* Add loading content gif
 
 ## Logic
 

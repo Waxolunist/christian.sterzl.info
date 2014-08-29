@@ -63,7 +63,7 @@ displayflex()
 calculate(prop, val)
   for vendor in vendors
     if vendor == official
-      {prop}: calc(val)
+      {prop}: unquote(join('',unquote('calc('),val,')'))
     else
       {prop}: unquote(join('','-',vendor,unquote('-calc('),val,')'))
 
