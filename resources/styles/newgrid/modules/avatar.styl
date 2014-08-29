@@ -1,3 +1,12 @@
+.avatar-container
+  text-align center
+  &:before
+    content ''
+    display inline-block
+    height 100%
+    vertical-align middle
+
+
 .avatar
   margin auto
   margin-top 5px
@@ -7,9 +16,11 @@
   background-image url('images/profile_half.png')
   background-repeat no-repeat
   background-size 100%
+  display inline-block
+  vertical-align middle
 
 if responsive
   // switching to break in half
 	@media portable-media
     .avatar
-      margin 1px
+      margin auto
