@@ -262,6 +262,7 @@ module.exports = function(grunt) {
               },
               langPrefix: 'hljs '
             },
+            'metalsmith-drafts': {},
             'metalsmith-path': {},
             'metalsmith-collections': {
               projects: {

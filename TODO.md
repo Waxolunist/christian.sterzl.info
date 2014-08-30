@@ -7,7 +7,7 @@
 
 * Change header style on scrolling
 
-* Update normalize.css
+* ~~Update normalize.css~~
 * Update csswizardry grid
 
 * Compatibility with IE11
