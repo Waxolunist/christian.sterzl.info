@@ -33,7 +33,8 @@
 ## Functionality
 
 * Thesis Link to Beha needs name
-* Prerender io
+* ~~Prerender io~~
+* Disqus
 
 ## Maintenance
 
