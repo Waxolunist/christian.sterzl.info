@@ -35,6 +35,7 @@
 * Thesis Link to Beha needs name
 * ~~Prerender io~~
 * Disqus
+* Google Analytics enable for production
 
 ## Maintenance
 
