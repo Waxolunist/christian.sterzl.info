@@ -204,6 +204,7 @@ module.exports = function(grunt) {
               properties    : true,  // optimize property access: a["foo"] → a.foo
               dead_code     : true,  // discard unreachable code
               drop_debugger : true,  // discard “debugger” statements
+              drop_console  : true,  // discard console.* statements
               unsafe        : true, // some unsafe optimizations (see below)
               conditionals  : true,  // optimize if-s and conditional expressions
               comparisons   : true,  // optimize comparisons
