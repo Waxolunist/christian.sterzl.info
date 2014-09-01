@@ -170,7 +170,8 @@ module.exports = function(grunt) {
       compile: {
         options: {
           data: {
-            debug: (process.env.DEBUG === 'true')  
+            debug: (process.env.DEBUG === 'true'),
+            production: (process.env.PRODUCTIOM === 'true')
           }
         },
         files: [
