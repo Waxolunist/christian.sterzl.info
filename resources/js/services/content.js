@@ -1,6 +1,6 @@
 define(['./module'], function (services) {
   'use strict';
-  services.factory('contentResource', ['$resource', '$sce', function ($resource, $sce) {
+  services.factory('contentResource', ['$resource', '$sce', 'utils', function ($resource, $sce, utils) {
     return $resource('/content/:path.json', {path: '@path'}, {
       get: {
         method: "GET",
@@ -8,10 +8,9 @@ define(['./module'], function (services) {
         transformResponse: function (data, headers) {
           try {
             var dataObj = angular.fromJson(data);
-            if(angular.isObject(dataObj) && dataObj.contents && dataObj.contents.data) {
-              var contentStr = String.fromCharCode.apply(null, dataObj.contents.data);
+            var contentStr = utils.readBuffer(dataObj.contents);
+            if(contentStr)
               dataObj.contents = $sce.trustAsHtml(contentStr);
-            }
             return dataObj;
           } catch (err) {
             //SyntaxErrorException

@@ -2,6 +2,7 @@ define([
   'angular',
   'angular-route',
   'angular-resource',
+  'angular-sanitize',
   './controllers/index',
   './directives/index',
   './services/index',
@@ -12,6 +13,7 @@ define([
   return ng.module('app', [
     'ngRoute',
     'ngResource',
+    'ngSanitize',
     'app.controllers',
     'app.directives',
     'app.services',

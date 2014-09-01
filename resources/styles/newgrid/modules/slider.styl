@@ -1,5 +1,5 @@
 .slider
-  width 640px
+  max-width 640px
   margin auto
 
   .slider-item
@@ -15,3 +15,9 @@
 
     li button:before
       font-size 13px
+
+if responsive
+	@media portable-media
+    .slider .slider-item
+      img
+        width 100%

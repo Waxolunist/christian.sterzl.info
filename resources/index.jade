@@ -9,9 +9,9 @@ html(lang="en")
     link(rel='stylesheet', href='/styles/newgrid/newgrid.css', type='text/css' )
   body
     .grid.center.circles-overlap-width
-      .grid__item.one-eighth
+      .grid__item.one-eighth.palm-three-tenths.portable-one-fifth.avatar-container
         .avatar
-      .grid__item.seven-eighths
+      .grid__item.seven-eighths.palm-seven-tenths.portable-four-fifths
         header.header-primary.grid
           h1.grid__item.one-whole
             a(href='/') Christian Sterzl
@@ -20,10 +20,10 @@ html(lang="en")
               | Enterprise Architect 
               nobr and Software Developer
     nav.nav-primary.grid.circles.circles-overlap.center.animated(ng-class="{'active': isActive}")
-      a.grid__item.portable-one-half.one-quarter.animated(href='/about',cc-active='active') About
-      a.grid__item.portable-one-half.one-quarter.animated(href='/resume',cc-active='active') Resume
-      a.grid__item.portable-one-half.one-quarter.animated(href='/projects',cc-active='active') Projects
-      a.grid__item.portable-one-half.one-quarter.animated(href='/blog',cc-active='active') Blog
+      a.grid__item.portable-one-half.one-quarter.animated(href='/about',cc-active='active') About 
+      a.grid__item.portable-one-half.one-quarter.animated(href='/resume',cc-active='active') Resume 
+      a.grid__item.portable-one-half.one-quarter.animated(href='/projects',cc-active='active') Projects 
+      a.grid__item.portable-one-half.one-quarter.animated(href='/blog',cc-active='active') Blog 
     .content-wrapper.grid.circles-overlap-width.center.animated(ng-view)
     .footer-wrapper.grid.circles-overlap-width.center
       footer.grid__item.one-whole

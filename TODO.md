@@ -7,8 +7,17 @@
 
 * Change header style on scrolling
 
-* Update normalize.css
+* ~~Update normalize.css~~
 * Update csswizardry grid
+
+* Compatibility with IE11
+  * Width of Body
+  * Slider height
+* Compatibility with iOS
+  * ~~Size of avatar~~
+  * Size of slider
+
+* Add loading content gif
 
 ## Logic
 
@@ -17,14 +26,15 @@
 
 ## Server
 
-* Install on server
-* Serve static with nginx
-* Install git hook
+* ~~Install on server~~
+* ~~Serve static with nginx~~
+* ~~Install git hook~~
 
 ## Functionality
 
 * Thesis Link to Beha needs name
-* Prerender io
+* ~~Prerender io~~
+* Disqus
 
 ## Maintenance
 
