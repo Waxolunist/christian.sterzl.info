@@ -22,7 +22,9 @@
 ## Logic
 
 * ~~Run in HTML5Mode~~
-* Add metalsmith drafts module
+* ~~Add metalsmith drafts module~~
+* ~~Response to 404~~
+* ~~drop console.log~~
 
 ## Server
 
@@ -35,7 +37,8 @@
 * Thesis Link to Beha needs name
 * ~~Prerender io~~
 * Disqus
-* Google Analytics enable for production
+* ~~Google Analytics enable for production~~
+* RSS feed
 
 ## Maintenance
 
