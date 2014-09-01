@@ -33,7 +33,7 @@ define(['./module'], function (services) {
         }
         templateData.$promise.then(function() {
           var templateArray = [resourcename, collection, type, 'html'].filter(function (val) {
-            return angular.isString(val);
+            return angular.isString(val) || angular.isNumber(val);
           });
           while(templateArray.length > 0) {
             if(templatePaths.indexOf(templateName(templateArray)) > -1) {

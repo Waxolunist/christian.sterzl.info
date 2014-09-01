@@ -20,6 +20,10 @@ controllers.controller('CCCtrl', ['$scope', '$routeParams', '$rootScope', '$loca
           templatesService.getTemplateUrl(params.resource, contentObj.collection, contentObj.type).then(function(templateUrl) {
             scope.templateUrl = templateUrl;
           });
+        }, function(error) {
+          templatesService.getTemplateUrl(error.status).then(function(templateUrl) {
+            scope.templateUrl = templateUrl;
+          });
         });
       }
     };
