@@ -13,7 +13,6 @@
       'angular-route': '../components/angular-route/angular-route',
       'angular-resource': '../components/angular-resource/angular-resource',
       'angular-sanitize': '../components/angular-sanitize/angular-sanitize',
-      'angular-meta': '../components/angular-meta/angular-meta',
       'marked': '../components/marked/lib/marked',
       'slick': '../components/slick-carousel/slick/slick'
     },
@@ -32,9 +31,6 @@
         deps: ['angular']
       },
       'angular-sanitize': {
-        deps: ['angular']
-      },
-      'angular-meta': {
         deps: ['angular']
       },
       'marked': {

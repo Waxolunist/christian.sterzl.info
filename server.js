@@ -1,5 +1,6 @@
-//Settings
+/* jshint esnext: true */
 
+//Settings
 var socket = process.env.LISTEN || 3000;
 var root = __dirname + '/dist';
 

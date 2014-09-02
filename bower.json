@@ -22,7 +22,6 @@
     "font-awesome": "~4.1.0",
     "highlight": "8.1",
     "angular-sanitize": "~1.2.23",
-    "normalize-css": "~3.0.1",
-    "angular-meta": "~0.2.0"
+    "normalize-css": "~3.0.1"
   }
 }

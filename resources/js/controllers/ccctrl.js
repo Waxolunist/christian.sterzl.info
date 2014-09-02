@@ -19,10 +19,13 @@ define(['./module'], function (controllers) {
           scope.res = contentObj;
           templatesService.getTemplateUrl(params.resource, contentObj.collection, contentObj.type).then(function(templateUrl) {
             scope.templateUrl = templateUrl;
+            $rootScope.meta.status = 200;
           });
         }, function(error) {
           templatesService.getTemplateUrl(error.status).then(function(templateUrl) {
             scope.templateUrl = templateUrl;
+            $rootScope.meta = {};
+            $rootScope.meta.status = error.status;
           });
         });
       }
