@@ -416,9 +416,8 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-requirejs');
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-metalsmith');
-
   // Default task(s).
-  grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy']);
+  grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy', 'sitemap']);
   grunt.registerTask('update', ['bowerupdate', 'npmupdate', 'build']);
   grunt.registerTask('default', ['build', 'npmstart', 'watch']);
 };

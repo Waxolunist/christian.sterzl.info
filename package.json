@@ -39,6 +39,7 @@
     "underscore.string": "^2.3.3"
   },
   "dependencies": {
+    "grunt-sitemap": "^1.1.0",
     "koa": "^0.9.0",
     "koa-compress": "^1.0.7",
     "koa-file-server": "^2.2.2",
