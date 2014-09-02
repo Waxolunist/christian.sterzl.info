@@ -1,11 +1,11 @@
 define(['./module'], function (controllers) {
   'use strict';
-controllers.controller('CCCtrl', ['$scope', '$routeParams', '$rootScope', '$location', '$compile', 'contentResource', 'templatesService', function ($scope, $routeParams, $rootScope, $location, $compile, Content, templatesService) {
+  controllers.controller('CCCtrl', ['$scope', '$routeParams', '$rootScope', '$location', '$compile', 'contentResource', 'templatesService', function ($scope, $routeParams, $rootScope, $location, $compile, Content, templatesService) {
 
     var postProcessContent = function(contentObj) {
       if(contentObj.type === 'list') {
         //set relative paths
-        contentObj.result.forEach(function (val, idx, arr) {
+        contentObj.result.forEach(function (val) {
           val.relPath = /.*\/([^\/]+).html/.exec(val.path)[1];
           val.absPath = $location.path() + '/' + val.relPath;
         });
