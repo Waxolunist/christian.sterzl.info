@@ -26,6 +26,7 @@
     "grunt-debug-task": "^0.1.5",
     "grunt-metalsmith": "0.0.1",
     "grunt-sed": "^0.1.1",
+    "grunt-sitemap": "^1.1.0",
     "highlight.js": "^8.1.0",
     "marked": "^0.3.2",
     "metalsmith-collections": "^0.4.1",
