@@ -2,14 +2,15 @@
   "name": "circlescms",
   "version": "0.0.2",
   "description": "My personal website christian.sterzl.info",
-  "main": "index.js",
+  "main": "server.js",
+  "homepage": "http://christian.sterzl.info",
   "author": {
     "name": "Christian Sterzl",
     "email": "christian.sterzl@gmail.com",
-    "url": "http://openshift.redhat.com/"
+    "url": "http://christian.sterzl.info"
   },
   "engines": {
-    "node": ">= 0.10.0",
+    "node": ">= 0.11.0",
     "npm": ">= 1.0.0"
   },
   "private": true,
@@ -24,6 +25,7 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-debug-task": "^0.1.5",
     "grunt-metalsmith": "0.0.1",
+    "grunt-sed": "^0.1.1",
     "highlight.js": "^8.1.0",
     "marked": "^0.3.2",
     "metalsmith-collections": "^0.4.1",
