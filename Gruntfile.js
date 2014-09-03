@@ -164,6 +164,18 @@ module.exports = function(grunt) {
             dest: target
           }
         ]
+      },
+      robots: {
+        files: [
+          {
+            expand: true,
+            cwd: src,
+            src: [
+              'robots.txt'
+            ],
+            dest: target
+          }
+        ]
       }
     },
     jade: {
