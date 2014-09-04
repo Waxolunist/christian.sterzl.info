@@ -14,7 +14,8 @@
       'angular-resource': '../components/angular-resource/angular-resource',
       'angular-sanitize': '../components/angular-sanitize/angular-sanitize',
       'marked': '../components/marked/lib/marked',
-      'slick': '../components/slick-carousel/slick/slick'
+      'slick': '../components/slick-carousel/slick/slick',
+      'viewport-units-buggyfill': '../components/viewport-units-buggyfill/viewport-units-buggyfill'
     },
     shim: {
       'jquery': {

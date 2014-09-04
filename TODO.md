@@ -43,7 +43,12 @@
 ## Maintenance
 
 * Grunt image optimization
+* Grunt CSS Minification
 * ~~JSON minification (writefilemetadata needs update or new option)~~
 * Linting (ES6)
 * Search
 * Open browser on grunt?
+* SEO
+  * ~~Sitemap~~
+  * ~~robots.txt~~
+* ~~Viewport high bug in iOS7~~
