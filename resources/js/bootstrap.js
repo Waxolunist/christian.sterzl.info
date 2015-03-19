@@ -6,9 +6,12 @@ define([
   'angular',
   'domReady',
   'app',
-  'config'
+  'config',
+  'viewport-units-buggyfill'
 ], function (require, ng) {
   'use strict';
+
+  require('viewport-units-buggyfill').init();
 
   require(['domReady!'], function (document) {
     ng.bootstrap(document, ['app']);
