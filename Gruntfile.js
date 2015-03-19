@@ -268,6 +268,7 @@ module.exports = function(grunt) {
       content: {
         options: {
           metadata: {},
+          clean: false,
           plugins: {
             'metalsmith-markdown': {
               renderer: mdRenderer,
@@ -324,6 +325,7 @@ module.exports = function(grunt) {
       templates: {
         options: {
           metadata: {},
+          clean: false,
           plugins: {
             'metalsmith-path': {},
             'metalsmith-collections': {

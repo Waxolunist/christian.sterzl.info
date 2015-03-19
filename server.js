@@ -29,10 +29,12 @@ if(debug) {
   console.log('Running in debug mode!');
   app.use(serve(root));
 } else {
+  console.log('Running in prod mode!');
   app.use(files({
     root: root,
     index: true
   }));
 }
 
+console.log("Listening on port " + socket);
 app.listen(socket);
