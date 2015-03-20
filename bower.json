@@ -22,6 +22,7 @@
     "slick-carousel": "~1.4.1",
     "font-awesome": "~4.3.0",
     "highlight": "8.4",
-    "normalize-css": "~3.0.2"
+    "normalize-css": "~3.0.2",
+    "viewport-units-buggyfill": "~0.5.1"
   }
 }

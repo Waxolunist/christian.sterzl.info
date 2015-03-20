@@ -343,7 +343,7 @@ module.exports = function(grunt) {
               collections: {
                 templates: {
                   output: {
-                    path: '/templates.json',
+                    path: 'templates.json',
                     asObject: true,
                     metadata: {
                       "type": "templates"
