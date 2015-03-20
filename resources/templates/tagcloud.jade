@@ -1,2 +1,2 @@
-a.tagcloud_item(ng-repeat="item in taglist | orderBy:'-count'", ng-class="{'active': item.tag === currentTag}", href="#!{{path}}#{{item.tag === currentTag ? '' : item.tag}}")
+a.tagcloud_item(ng-repeat="item in taglist | orderBy:'-count'", ng-class="{'active': item.tag === currentTag}", href="{{path}}#{{item.tag === currentTag ? '' : item.tag}}")
   | {{item.tag}} ({{item.count}})
