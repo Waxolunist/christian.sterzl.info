@@ -30,13 +30,13 @@ html(lang="en",ng-app='circlescms')
 
 Then I had to register a controller on an element. I chose the body element.
 
-```markup
+```html
 body(ng-controller='CCCtrl')
 ```
 
 And I defined the content-wrapper div as viewport.
 
-```markup
+```html
 div.content-wrapper(ng-view)
 ```
 
@@ -108,7 +108,7 @@ $scope.r = rpc('cms.loadcontent', path);
 
 And in the template I can bind the html returned with following line:
 
-```markup
+```html
 <article id="content" ng-bind-html-unsafe="r.content">
 </article>
 ```

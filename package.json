@@ -28,7 +28,7 @@
     "grunt-metalsmith": "^1.0.0",
     "grunt-sed": "^0.1.1",
     "grunt-sitemap": "^1.2.1",
-    "highlight.js": "^8.4.0",
+    "highlight.js": "^8.5.0",
     "marked": "^0.3.3",
     "metalsmith-collections": "^0.7.0",
     "metalsmith-drafts": "0.0.1",
@@ -48,7 +48,8 @@
     "koa-compress": "^1.0.8",
     "koa-file-server": "^2.3.0",
     "koa-rewrite": "^1.1.0",
-    "koa-static": "^1.4.9"
+    "koa-static": "^1.4.9",
+    "metalsmith-drafts": "0.0.1"
   },
   "scripts": {
     "start": "node --harmony server.js"

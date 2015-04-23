@@ -41,7 +41,7 @@ I tried all 5 above, but every of it had its disadvantages, well except prism.
 
 **Highlight.js** is pretty much straightforward and easy to integrate, but it does always try to detect automatically the language which does sometimes fail. So if I marked the code snippet as javascript like so:
 
-```markup
+```html
 <pre>
     <code class="language-javascript">
     </code>
@@ -49,7 +49,7 @@ I tried all 5 above, but every of it had its disadvantages, well except prism.
 ```
 
 The result after running highlight.js was, no matter in which way I called the api:
-```markup
+```html
 <pre>
     <code class="language-javascript undefined">
     </code>

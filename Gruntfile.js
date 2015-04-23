@@ -273,8 +273,14 @@ module.exports = function(grunt) {
           plugins: {
             'metalsmith-markdown': {
               renderer: mdRenderer,
-              highlight: function (code) {
-                return require('highlight.js').highlightAuto(code).value;
+              highlight: function (code, lang) {
+                var highlight = require('highlight.js'),
+                    languageObject = highlight.getLanguage(lang);
+                if(languageObject) {
+                  return highlight.highlight(lang, code, true).value;
+                } else {
+                  return highlight.highlightAuto(code).value;
+                }
               },
               langPrefix: 'hljs '
             },
