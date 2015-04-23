@@ -300,7 +300,10 @@ module.exports = function(grunt) {
             'metalsmith-feed': {
               collection: 'blog',
               site_url: 'http://christian.sterzl.info',
-              destination: '../feed.xml'
+              destination: '../feed.xml',
+              title: 'Christian Sterzl\'s Blog',
+              description: 'A tiny blog of a software developer',
+              image_url: 'http://christian.sterzl.info/assets/avatar.png'
             },
             'metalsmith-writemetadata': {
               pattern: ['**/*.html'],
