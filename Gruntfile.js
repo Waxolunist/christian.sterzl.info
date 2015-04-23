@@ -430,13 +430,16 @@ module.exports = function(grunt) {
     sitemap: {
       dist: {
         siteRoot: target + '/',
-        pattern: '{content/**/*.json,index.html}'
+        pattern: [
+          target + '/content/**/*.json', 
+          target + '/index.html'
+        ]
       }
     },
     sed: {
       sitemap: {
         path: target + '/sitemap.xml',
-        pattern: '/content(/.*).json',
+        pattern: 'content(/.*).json',
         replacement: '$1'
       }
     }
