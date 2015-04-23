@@ -177,6 +177,16 @@ module.exports = function(grunt) {
             dest: target
           }
         ]
+      },
+      favicons: {
+        files: [
+          {
+            expand: true,
+            cwd: src + '/favicons',
+            src: ['*.*'],
+            dest: target
+          }
+        ]
       }
     },
     jade: {
