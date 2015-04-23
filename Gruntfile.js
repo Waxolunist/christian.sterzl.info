@@ -297,6 +297,11 @@ module.exports = function(grunt) {
             'metalsmith-filemetadata': [
               {pattern: "**/*.html", metadata: {"type": "item"}},
             ],
+            'metalsmith-feed': {
+              collection: 'blog',
+              site_url: 'http://christian.sterzl.info',
+              destination: '../feed.xml'
+            },
             'metalsmith-writemetadata': {
               pattern: ['**/*.html'],
               ignorekeys: ['next', 'previous'],
@@ -441,6 +446,11 @@ module.exports = function(grunt) {
         path: target + '/sitemap.xml',
         pattern: 'content(/.*).json',
         replacement: '$1'
+      },
+      feed: {
+        path: target + '/feed.xml',
+        pattern: '[.]html(</link>|</guid>)',
+        replacement: '$1'
       }
     }
   });
@@ -457,7 +467,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sed');
 
   // Default task(s).
-  grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy', 'sitemap', 'sed:sitemap']);
+  grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy', 'sitemap', 'sed']);
   grunt.registerTask('update', ['bowerupdate', 'npmupdate', 'build']);
   grunt.registerTask('default', ['build', 'npmstart', 'watch']);
 };
