@@ -25,6 +25,7 @@ html(lang='en')
     meta(name="msapplication-TileColor", content="#5dcf89")
     meta(name="msapplication-TileImage", content="/mstile-144x144.png")
     meta(name="theme-color", content="#ffffff")
+    link(rel="alternate", type="application/rss+xml", title="Christian Sterzl's Blog", href="/feed.xml")
   body
     .grid.center.circles-overlap-width
       .grid__item.one-eighth.palm-three-tenths.portable-one-fifth.avatar-container
@@ -45,6 +46,8 @@ html(lang='en')
     .content-wrapper.grid.circles-overlap-width.center.animated(ng-view)
     .footer-wrapper.grid.circles-overlap-width.center
       footer.grid__item.one-whole
+        a.rss(href='/feed.xml', target='_blank')
+          include ./images/iconic/svg/rss_alt.svg
     if debug
       script(data-main='/js/main',src='/js/require.js')
     else
