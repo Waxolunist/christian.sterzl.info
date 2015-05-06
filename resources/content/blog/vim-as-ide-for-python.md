@@ -184,17 +184,17 @@ need that for now.
 My `.vimrc`:
 
 ```vim
-" --------------------------------------- "
+" ---------------------------------- "
 " Pathogen
-" --------------------------------------- "
+" ---------------------------------- "
 
 " Load plugins with pathogen
 execute pathogen#infect()
 execute pathogen#helptags()
 
-" --------------------------------------- "
+" ---------------------------------- "
 " Configure NERDTree
-" --------------------------------------- "
+" ---------------------------------- "
 
 " Open NERDTree when Vim startsup and no files were specified
 autocmd StdinReadPre * let s:std_in=1
@@ -206,31 +206,31 @@ map <C-n> :NERDTreeToggle<CR>
 " Close Vim if the only window left open is NERDTree
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
 
-" --------------------------------------- "
+" ---------------------------------- "
 " Configure MiniBufExpl
-" --------------------------------------- "
+" ---------------------------------- "
  
 " Open MiniBufExpl with Ctrl-m
 map <C-m> :MBEToggle<CR>
 
-" --------------------------------------- "
+" ---------------------------------- "
 " Configure Tagbar
-" --------------------------------------- "
+" ---------------------------------- "
 
 " Open Tagbar with F8
 map <F8> :TagbarToggle<CR>
 
-" --------------------------------------- "
+" ---------------------------------- "
 " Configure Ultisnip and YouCompleteMe
-" --------------------------------------- "
+" ---------------------------------- "
 
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<tab>"
 let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
 
-" --------------------------------------- "
+" ---------------------------------- "
 " Configure YouCompleteMe
-" --------------------------------------- "
+" ---------------------------------- "
 
 let g:ycm_collect_identifiers_from_tags_files = 1 " Let YCM read tags from Ctags file
 let g:ycm_use_ultisnips_completer = 1 " Default 1, just ensure
@@ -245,9 +245,9 @@ let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 map <F3> :YcmCompleter GoTo<CR>
 
 
-" --------------------------------------- "
+" ---------------------------------- "
 " Common
-" --------------------------------------- "
+" ---------------------------------- "
 
 " Python shiftwidth, tabstop, softtabstop
 autocmd FileType python set sw=4
