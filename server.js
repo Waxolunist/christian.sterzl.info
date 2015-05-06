@@ -17,7 +17,7 @@ app.use(function *(next){
   yield next;
 });
 
-var regex = /^(?:.+\.(?!(?:jpg|xml|png|gif|pdf|json|js|map|eot|svg|ttf|woff|html|css)$))?(?:[^.]+$)/i;
+var regex = /^(?:.+\.(?!(?:jpg|jpeg|xml|png|gif|pdf|json|js|map|eot|svg|ttf|woff|html|css)$))?(?:[^.]+$)/i;
 app.use(rewrite(regex, '/index.html'));
 
 //serve is somewhat slower, files more sophisticated, but does not support livereload because of caching

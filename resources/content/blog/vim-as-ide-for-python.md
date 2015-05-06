@@ -6,22 +6,27 @@ tags: vim python
 draft: false
 ---
 
+<carousel>
+  <carousel-item ng-attr-src="/assets/blog/pythonide.gif"></carousel-item>
+</carousel>
+
+
 # Using Vim as IDE for Python
 
 ## Motivation
 
 I like using Vim for all my development activities, especially for typing text or writing
-small scripts. Currently I am developing some REST services with [flask](http://flask.pocoo.org/) 
-which is a small and handy python framework for developing web applications and REST services.
+small scripts. Currently, I am developing some REST services with [flask](http://flask.pocoo.org/) 
+which is a small and handy Python framework for developing web applications and REST services.
 
-Therefore, I have decided to extend my Vim configuration for use with python. My Vim configuration 
+Therefore, I have decided to extend my Vim configuration for use with Python. My Vim configuration 
 is already under version control for years and is currently available on 
 [github](https://github.com/Waxolunist/vimconf).
 
 ## Plugins
 
-To my surprise, I had already most plugins installed needed to turn my Vim into a IDE for python.
-For this How-To I chose in the following plugins:
+To my surprise, I already had most plugins installed and only needed to turn my Vim into an IDE for Python.
+For this How-To I chose the following plugins:
 
 * [NERDTree](https://github.com/scrooloose/nerdtree): Filesystem Browser
 * [MiniBufExpl](https://github.com/fholgado/minibufexpl.vim): Show open buffers
@@ -33,20 +38,20 @@ For this How-To I chose in the following plugins:
 * [vim-snippets](https://github.com/honza/vim-snippets): Snippets for various programming languages
 * [YouCompleteMe](https://github.com/Valloric/YouCompleteMe): Code completion engine
 
-Vim Polyglot, tagbar, syntastic and YouCompleteMe are plugins covering a lot more languages than 
-just python, but having more common plugins in place is convenient when switching to other languages.
+Vim-polyglot, tagbar, syntastic and YouCompleteMe are plugins covering a lot more languages than 
+just Python, but having more common plugins in place is convenient when switching to other languages.
 
-Usually I load plugins with [pathogen](https://github.com/tpope/vim-pathogen) and install them as 
+Usually, I load plugins with [pathogen](https://github.com/tpope/vim-pathogen) and install them as 
 git submodules into the folder bundle.
 
 ## External requirements
 
 ### Python
 
-Of course you need python installed. The minimum python version is 2.6 altough I only tested this 
-configuration with python 2.7.9.
+Of course you need Python installed. The minimum Python version is 2.6 altough I only tested this 
+configuration with Python 2.7.9.
 
-You can determine your python version with following command:
+You can determine your Python version with the following command:
 
 ```bash
 $ python --version
@@ -55,7 +60,7 @@ Python 2.7.9
 
 ### Exuberant Ctags
 
-In order to present the outline of python files I use the tagbar plugin. The tagbar plugin uses the 
+In order to present the outline of Python files I use the tagbar plugin. The tagbar plugin uses the 
 output of the [exuberant ctags](http://ctags.sourceforge.net/) library. At least version 5.5 is 
 required.
 
@@ -64,14 +69,14 @@ Mac OS X.
 
 ### Pylint
 
-Syntastic uses external syntax checkers. For python [pylint](http://www.pylint.org/) is the state 
+Syntastic uses external syntax checkers. For Python [pylint](http://www.pylint.org/) is the state 
 of the art syntax checker. Either install it with the package manager of your distribution or 
 alternatively with pip. See the installation instructions of pylint 
 [here](http://www.pylint.org/#install).
 
 ### YouCompleteMe
 
-YouCompleteMe is a plugin with compiled content. Therefore it requires an extra installation step 
+YouCompleteMe is a plugin with compiled content. Therefore, it requires an extra installation step 
 after downloading. Please refer to the installation instructions provided on the homepage of the 
 plugin: [https://github.com/Valloric/YouCompleteMe](https://github.com/Valloric/YouCompleteMe).
 
@@ -79,7 +84,7 @@ plugin: [https://github.com/Valloric/YouCompleteMe](https://github.com/Valloric/
 
 The minimum Vim version supported by the above plugins is 7.3.
 
-Vim needs to be compiled with python support (the `+python` flag). The python version compiled into 
+Vim needs to be compiled with Python support (the `+python` flag). The Python version compiled into 
 Vim must be at least 2.6. You can test this by typing:
 
 ```bash
@@ -88,7 +93,7 @@ Vim must be at least 2.6. You can test this by typing:
 [GCC 4.9.2]
 ```
 
-YouCompleteMe uses internal jedi, which is an autocomplete library for python. Thus Vim should be 
+YouCompleteMe uses internal jedi, which is an autocomplete library for Python. Thus Vim should be 
 compiled with the `+conceal` flag. If Vim is not compiled with this flag, the parameter 
 recommendation list may not appear when typing open brackets.
 
@@ -111,7 +116,7 @@ Python comes already preinstalled in version 2.7.9.
 When installing Vim plugins I usually clone the github repository of that plugin and load them 
 with pathogen, thus I need to install git as well.
 
-To compile YouCompleteMe I needed the python headers, cmake and the build-essentials.
+To compile YouCompleteMe I needed the Python headers, cmake and the build-essentials.
 
 To install all of the above type:
 
@@ -130,7 +135,7 @@ and loading it then with pathogen. More sophisticated plugin managers exist whic
 loading like [NeoBundle](https://github.com/Shougo/neobundle.vim). But for testing the pathogen 
 package manager is a good fit.
 
-First I installed pathogen.
+First, I installed pathogen.
 
 ```bash
 $ mkdir -p ~/.vim/autoload
@@ -144,7 +149,7 @@ pathogen. So add this to your `.vimrc`:
 execute pathogen#infect()
 ```
 
-Then I cloned the above chosen plugins into the directory `bundle` under my Vim configuration 
+Then I cloned the plugins chosen above into the directory `bundle` under my Vim configuration 
 directory `.vim`.
 
 
@@ -157,7 +162,7 @@ $ git clone https://github.com/tpope/vim-sensible ~/.vim/bundle/sensible
 $ git clone https://github.com/scrooloose/syntastic ~/.vim/bundle/syntastic
 $ git clone https://github.com/sheerun/vim-polyglot ~/.vim/bundle/polyglot
 $ git clone https://github.com/Valloric/YouCompleteMe ~/.vim/bundle/youcompleteme
-$ git clone https://github.com/SirVer/ultisnips ~/.vim/bundle/ultisnip
+$ git clone https://github.com/SirVer/ultisnips ~/.vim/bundle/ultisnips
 $ git clone https://github.com/honza/vim-snippets ~/.vim/bundle/vimsnippets
 ```
 
@@ -233,8 +238,8 @@ let g:ycm_seed_identifiers_with_syntax = 1 " Completion for programming language
 let g:ycm_complete_in_comments = 1 " Completion in comments
 let g:ycm_complete_in_strings = 1 " Completion in string
 
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
+let g:ycm_key_list_select_completion = ['<C-j>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-k>', '<Up>']
 
 " Goto definition with F3
 map <F3> :YcmCompleter GoTo<CR>
@@ -264,12 +269,16 @@ For more shortcuts refer to the plugin documentation.
 * F8 - Toggle Tagbar
 * Ctrl-m - Toggle Minibufexpl
 * Ctrl-n - Toggle NERDTree
-* Ctrl-space - Show autocomplete menu for python code
+* Ctrl-space - Show autocomplete menu for Python code
 * F3 - Goto definition
 * Tab - Complete / Jump to next completion mark
 * Shift-Tab - Jump to last completion mark
 
+### Additional Resources
+
+You can find additional snippets on github. I added [http://vim.wikia.com/wiki/Script:2715](these).
+
 ## Final Words
 
 This configuration is just a first step. I saw while writing this post  
-other useful settings and plugins worth trying in the future and blogging about.
+other useful settings and plugins worth trying and writing about.

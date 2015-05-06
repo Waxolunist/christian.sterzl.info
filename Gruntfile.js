@@ -443,6 +443,13 @@ module.exports = function(grunt) {
         options: {
           reload: true
         }
+      },
+      assets: {
+        files: [src + '/assets/**/*.*', src + '/assets/*.*'],
+        tasks: ['copy:assets'],
+        options: {
+          reload: true
+        }
       }
     },
     sitemap: {

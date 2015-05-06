@@ -53,13 +53,6 @@ font-size-adjust()
 box-shadow()
   allvendors box-shadow arguments
 
-displayflex()
-  for vendor in vendors
-    if vendor == official
-      display: flex
-    else
-      display: unquote(join('','-',vendor,'-flex'))
-
 calculate(prop, val)
   for vendor in vendors
     if vendor == official
@@ -72,3 +65,13 @@ full-circle(diameter)
   width diameter
   border-radius (diameter/2)
 
+flex(important = null)
+  for vendor in vendors
+    if vendor == official
+      display: flex important
+    else
+      display: unquote(join('','-',vendor,'-flex ')) important
+
+flex-direction(direction = row, important = null)
+  allvendors flex-direction direction important
+  
