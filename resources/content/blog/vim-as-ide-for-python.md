@@ -1,15 +1,12 @@
 ---
 author: Christian Sterzl
-date: 2015-04-15
+date: 2015-04-16
 title: Vim as IDE for Python
 tags: vim python
 draft: false
 ---
 
-<carousel>
-  <carousel-item ng-attr-src="/assets/blog/pythonide.gif"></carousel-item>
-</carousel>
-
+<img class="img-top-center" src="/assets/blog/pythonide.gif"/>
 
 # Using Vim as IDE for Python
 
