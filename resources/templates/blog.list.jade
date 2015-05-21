@@ -1,4 +1,8 @@
-article#content.content.grid__item.one-whole.animated.active
+article#content.content.grid__item.one-whole.active
+  //
+    .grid
+      a.grid__item.one-half.blog-category(href='{{path}}') All Entries
+      a.grid__item.one-half.blog-category(href='{{path}}/technologyradar') Technoloygradar
   .blog
     .grid(ng-repeat="item in res.result | orderBy:'-date'")
       time.grid__item.portable-one-whole.one-fifth(datetime="{{item.date}}", pubdate) {{item.date | date:'MMM d, yyyy'}}

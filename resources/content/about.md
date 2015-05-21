@@ -14,7 +14,7 @@ The most important open source projects I started are [validationconstraints](ht
 
 # Home
 
-I live in Switzerland in the canton Aargau with my wife Jasmin, my son Cedric and my dog Joy. Born and raised in Vienna, Austria, I moved to Zurich, Switzerland, in 2007.
+I live in Switzerland in the canton Aargau with my wife Jasmin, my son Cedric, my Daughter Vivienne and my dog Joy. Born and raised in Vienna, Austria, I moved to Zurich, Switzerland, in 2007.
 
 We try to spend every spare minute together. I also love to indulge in my second passion - cooking. We spend a lot of our holidays in Austria but we also like to travel to more distant destinations like Florida.
 

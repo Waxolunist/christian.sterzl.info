@@ -158,6 +158,9 @@ module.exports = function(grunt) {
               'components/angular-route/angular-route.js',
               'components/angular-resource/angular-resource.js',
               'components/angular-sanitize/angular-sanitize.js',
+              'components/angular-material/angular-material.js',
+              'components/angular-animate/angular-animate.js',
+              'components/angular-aria/angular-aria.js',
               'components/marked/lib/marked.js',
               'components/slick-carousel/slick/slick.js',
               'components/viewport-units-buggyfill/viewport-units-buggyfill.js'

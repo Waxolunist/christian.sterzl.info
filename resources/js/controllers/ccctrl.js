@@ -33,5 +33,6 @@ define(['./module'], function (controllers) {
     };
     $rootScope.isActive = true;
     loadContent($routeParams, $scope);
+    $scope.path = $location.path();
   }]);
 });

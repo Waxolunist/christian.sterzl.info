@@ -1,4 +1,4 @@
-article#content.content.grid__item.one-whole.animated.active
+article#content.content.grid__item.one-whole.active
   .blog
     .grid(ng-repeat="item in res.result | orderBy:'-date'")
       time.grid__item.portable-one-whole.one-fifth(datetime="{{item.date}}", pubdate) {{item.date | date:'MMM d, yyyy'}}

@@ -17,7 +17,6 @@ define(['./module'], function (directives) {
               };
             });
         $scope.taglist = tagArray;
-        $scope.path = $location.path();
         $scope.currentTag = $location.hash();
       }]
     };

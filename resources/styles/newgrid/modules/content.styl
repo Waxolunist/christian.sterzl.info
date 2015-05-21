@@ -75,17 +75,35 @@ if responsive
 //////////////////////////////////////////////////////////
 .content
   max-height 0
-  opacity 0
   &.active
-    opacity 1
     max-height none
 
 //////////////////////////////////////////////////////////
 // Animations                                           //
 //////////////////////////////////////////////////////////
-.content
 .content-wrapper
-  transition-property opacity
+  opacity 1
+
+.content-wrapper.ng-leave
+  transition opacity height ease 0.2s
+  opacity 1
+  height 100vh
+  
+.content-wrapper.ng-leave-active
+  transition opacity height ease 0.2s
+  opacity 0
+  height 0
+
+
+.content-wrapper.ng-enter
+  transition opacity height ease 0.2s
+  opacity 0
+  height 0
+  
+.content-wrapper.ng-enter-active
+  transition opacity height ease 0.2s
+  opacity 1
+  height 100vh
 
 .bounce
   animation-name bounceIn
