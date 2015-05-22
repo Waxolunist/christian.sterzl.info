@@ -14,7 +14,9 @@ define([
 
   //Polyfills
   require('viewport-units-buggyfill').init();
-  require('object-fit').polyfill({
+  var objectFit = require('object-fit');
+  objectFit._debug = true;
+  objectFit.polyfill({
     selector: '.storyjs-embed .content-container .media .media-image img',
     fittype: 'contain',
     disableCrossDomain: 'true'
