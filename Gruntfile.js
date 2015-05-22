@@ -163,7 +163,8 @@ module.exports = function(grunt) {
               'components/angular-aria/angular-aria.js',
               'components/marked/lib/marked.js',
               'components/slick-carousel/slick/slick.js',
-              'components/viewport-units-buggyfill/viewport-units-buggyfill.js'
+              'components/viewport-units-buggyfill/viewport-units-buggyfill.js',
+              'components/object-fit/dist/polyfill.object-fit.js'
             ],
             dest: target
           }

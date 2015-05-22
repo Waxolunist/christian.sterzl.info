@@ -18,7 +18,8 @@
       'angular-aria': '../components/angular-aria/angular-aria',
       'marked': '../components/marked/lib/marked',
       'slick': '../components/slick-carousel/slick/slick',
-      'viewport-units-buggyfill': '../components/viewport-units-buggyfill/viewport-units-buggyfill'
+      'viewport-units-buggyfill': '../components/viewport-units-buggyfill/viewport-units-buggyfill',
+      'object-fit': '../components/object-fit/dist/polyfill.object-fit'
     },
     shim: {
       'jquery': {
