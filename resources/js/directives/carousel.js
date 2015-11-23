@@ -1,6 +1,6 @@
 define(['./module', 'slick'], function (directives) {
   'use strict';
-  directives.directive('carousel', [function () {
+  directives.directive('carousel', ['$timeout', function ($timeout) {
     return {
       restrict: 'E',
       priority: -1,
@@ -11,11 +11,14 @@ define(['./module', 'slick'], function (directives) {
       controller: function($scope, $element){
       },
       link: function($scope, $element) {
-        $element.slick({
-          autoplay: true,
-          dots: true,
-          speed: 600
-        });
+	$timeout(function () {
+		$element.slick({
+		  infinite: true,
+		  autoplay: true,
+		  dots: true,
+		  speed: 600
+		});
+	}, 0);
       }
     };
   }]);

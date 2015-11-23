@@ -15,7 +15,7 @@ Builds and runs the server in normal mode
 
 For developing run it with 
 
-    DEBUG=true grunt
+    grunt debug
 
 ## Release
 

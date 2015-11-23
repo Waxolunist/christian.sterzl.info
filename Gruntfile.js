@@ -45,9 +45,16 @@ module.exports = function(grunt) {
   });
 
   grunt.registerTask('npmstart', 'start node', function() {
-    var exec = require('child_process').exec;
-    exec('npm start', {cwd: '.'}, function(err, stdout, stderr) {
-      console.log(stdout);
+    var spawn = require('child_process').spawn;
+    var child = spawn('npm', ['start'], { cwd: '.', env: process.env });
+    child.stdout.on('data', function (data) {
+      console.log(data.toString('utf-8'));
+    });
+    child.stderr.on('data', function (data) {
+      console.log(data.toString('utf-8'));
+    });
+    child.on('close', function (data) {
+      console.log(data.toString('utf-8'));
     });
   });
 
@@ -55,6 +62,14 @@ module.exports = function(grunt) {
   // Project configuration.
   grunt.initConfig({
     pkg: grunt.file.readJSON('package.json'),
+    env: {
+      dev: {
+        DEBUG: 'true'
+      },
+      production: {
+        PRODUCTION: 'true'
+      }
+    },
     clean: [target],
     stylus: {
       compile: {
@@ -196,9 +211,13 @@ module.exports = function(grunt) {
     jade: {
       compile: {
         options: {
-          data: {
-            debug: (process.env.DEBUG === 'true'),
-            production: (process.env.PRODUCTION === 'true')
+          data: function() {
+            var debug = process.env.DEBUG == 'true';
+            var production = process.env.PRODUCTION === 'true';
+            return {
+              debug: debug,
+              production: production
+            };
           }
         },
         files: [
@@ -479,6 +498,7 @@ module.exports = function(grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-env');
   grunt.loadNpmTasks('grunt-contrib-stylus');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-copy');
@@ -491,6 +511,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-sed');
 
   // Default task(s).
+  grunt.registerTask('debug', ['env:dev', 'clean', 'stylus', 'jade', 'uglify', 'metalsmith', 'copy', 'npmstart', 'watch']);
   grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy', 'sitemap', 'sed']);
   grunt.registerTask('update', ['bowerupdate', 'npmupdate', 'build']);
   grunt.registerTask('default', ['build', 'npmstart', 'watch']);
