@@ -212,7 +212,7 @@ module.exports = function(grunt) {
       compile: {
         options: {
           data: function() {
-            var debug = process.env.DEBUG == 'true';
+            var debug = process.env.DEBUG === 'true';
             var production = process.env.PRODUCTION === 'true';
             return {
               debug: debug,
@@ -317,7 +317,9 @@ module.exports = function(grunt) {
               },
               langPrefix: 'hljs '
             },
-            'metalsmith-drafts': {},
+            'metalsmith-drafts': function() {
+              return process.env.PRODUCTION === 'true';
+            },
             'metalsmith-path': {},
             'metalsmith-collections': {
               projects: {
@@ -514,5 +516,5 @@ module.exports = function(grunt) {
   grunt.registerTask('debug', ['env:dev', 'clean', 'stylus', 'jade', 'uglify', 'metalsmith', 'copy', 'npmstart', 'watch']);
   grunt.registerTask('build', ['clean', 'stylus', 'jade', 'requirejs', 'uglify', 'metalsmith','copy', 'sitemap', 'sed']);
   grunt.registerTask('update', ['bowerupdate', 'npmupdate', 'build']);
-  grunt.registerTask('default', ['build', 'npmstart', 'watch']);
+  grunt.registerTask('default', ['env:production', 'build', 'npmstart', 'watch']);
 };

@@ -1,6 +1,6 @@
 ---
 author: Christian Sterzl
-time: 2013
+time: 2012
 name: CirclesCMS
 tags: web jquery angularjs javascript nodejs express socketstream html5
 site: https://github.com/Waxolunist/circlescms

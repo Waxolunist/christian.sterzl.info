@@ -5,7 +5,7 @@ article.content.grid__item.one-whole.active#content(ng-controller="tagcloudCtrl"
     a.tag.active(ng-href='{{path}}', title='Click to disable filter') {{currentTag}}
   .grid
     .projects.grid__item.palm-two-thirds.four-fifths
-      .grid(ng-repeat="item in res.result | filter:{tags: currentTag} | orderBy:'-time'")
+      .grid(ng-repeat="item in res.result | orderBy:'-time.toString().substr(0,4)' | filter:{tags: currentTag}")
         time.grid__item.portable-one-whole.one-fifth(datetime='{{item.time}}', pubdate='pubdate') {{item.time}}
         a.grid__item.portable-one-whole.four-fifths.title(href='{{item.absPath}}', rel='bookmark', title='{{item.name}}') {{item.name}}
         .grid__item.portable-one-whole.three-fifths.push-desk-one-fifth.summary(ng-bind-html="item.summary | markdown")
