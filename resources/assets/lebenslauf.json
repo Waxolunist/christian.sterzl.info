@@ -61,10 +61,10 @@
       {
         "startDate":"1995",
         "headline":"My first own pc",
-        "text":"<p>My first own pc had 16 MB RAM and a 20 GB HD.</p>",
-        "classname": "noborder",
+        "text":"<p>My first own pc had 16 MB RAM and a 20 GB HD.</p><p>The operating system wasn't linux by the way. ;)</p>",
+        "classname": "noborder max75",
         "asset": {
-          "media": "/assets/win95.jpg"
+          "media": "/assets/tux.png"
         }
       },
       {
@@ -86,16 +86,6 @@
         }
       },
       {
-        "startDate":"2000,09",
-        "headline":"My first car accident",
-        "text":"Some months later. <footer>It wasn't my fault. Fortunately, nothing severe happened.</footer>",
-        "classname": "noborder",
-        "asset": {
-          "media": "/assets/firstaccident.jpg"
-        }
-      },
-
-      {
         "startDate":"2000,10",
         "endDate":"2001,06",
         "headline":"Military Service",
@@ -106,17 +96,95 @@
         }
       },
       {
-        "startDate": "2001",
-        "endDate": "2002",
-        "headline": "What's next?" 
-      }
-    ],
-    "era": [
+        "startDate": "2001,09",
+        "endDate": "2005,08",
+        "headline": "St. Pölten University of Applied Sciences",
+        "text": "<p>I studied Computersimulations and communications engineering in St. Pölten.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/fh-logo.svg" 
+        }
+      },
       {
-        "startDate": "1987,09",
-        "endDate": "2000,06",
-        "headline": "School Years"
+        "startDate": "2003,08",
+        "endDate": "2004,02",
+        "headline": "Erasmus - KTH Royal Institute of Technology",
+        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/kth-logo.svg" 
+        }
+      },
+      {
+        "startDate": "2004,08",
+        "endDate": "2005,05",
+        "headline": "Internship",
+        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/kth-logo.svg" 
+        }
+      },
+      {  
+        "startDate": "2005,08,30",
+        "endDate": "2005,08,30",
+        "headline": "Graduation",
+        "text": "<p>I graduated with good success and had the honour to give a brief speech at my own graduation.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/sponsion.jpg" 
+        }
+      },
+      {
+        "startDate": "2005,08",
+        "endDate": "2007,07",
+        "headline": "First Job",
+        "text": "<p>At PDTS I worked on a prepaid credit card sales platform. I learned a lot about relational databases and worked mostly with PLSQL and Java.</p>",
+        "classname": "noborder max75",
+        "asset": {
+          "media": "/assets/pdts-logo.gif" 
+        }
+      },
+      {
+        "startDate": "2007,07",
+        "endDate": "2007,07",
+        "headline": "Switzerland",
+        "text": "<p>After working for two years in vienna I migrated to Switzerland.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/switzerland.svg" 
+        }
+      },
+      {
+        "startDate": "2007,08",
+        "endDate": "2009,07",
+        "headline": "BDH Solutions",
+        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/kth-logo.svg" 
+        }
+      },
+      {
+        "startDate": "2009,06,06",
+        "endDate": "2009,06,06",
+        "headline": "Wedding",
+        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/kth-logo.svg" 
+        }
+      },
+      {
+        "startDate": "2003,08",
+        "endDate": "2004,02",
+        "headline": "Sympany",
+        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/kth-logo.svg" 
+        }
       }
-    ] 
+    ]
   }
 }
