@@ -8,8 +8,9 @@ define(['./app'], function (app) {
       })
       .when('/:resource*', {
         controller: 'CCCtrl',
-        template: '<div ng-include="templateUrl">Loading...</div>'
-    });
+        template: '<div ng-include="templateUrl">Loading...</div>',
+        reloadOnSearch: false
+      });
     $locationProvider.hashPrefix('!');
     $locationProvider.html5Mode({
       enabled: true,

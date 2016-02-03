@@ -3,7 +3,7 @@ author: Christian Sterzl
 time: 2009
 name: Reservoirs
 tags: python django mysql
-summary: A web application written for the Swiss Federal Office of Energy SFOE. It enables operators of reservoirs to self report statistical data about their reservoirs. Furthermore the application outputs reports of this data in different formats such as PDF or Excel.
+summary: A web application written for the Swiss Federal Office of Energy SFOE. It enables operators of reservoirs to self report statistical data about their reservoirs. Furthermore, the application outputs reports of this data in different formats such as PDF or Excel.
 ---
 
 

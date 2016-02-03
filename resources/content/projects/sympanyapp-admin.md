@@ -4,7 +4,7 @@ time: 2013 - 2016
 name: Sympany App - Administration Interface
 tags: web jee java vaadin gwt jpa ejb guice guava maven jaxb weblogic soap 
 site: http://www.sympany.ch/app
-summary: The Administration Interface of the Sympany App is the backend application used by Sympany employess for managing registrations and users, statistics, maintenance tasks and processing uploaded invoices. 
+summary: The Administration Interface of the Sympany App is the backend application used by Sympany employees for managing registrations and users, statistics, maintenance tasks and processing uploaded invoices. 
 draft: true
 ---
 

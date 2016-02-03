@@ -33,7 +33,7 @@
         "startDate":"1987,09",
         "endDate":"1991,07",
         "headline":"Primary School",
-        "text":"<p>St. Elisabeth was a catholic school. I was taught by nuns. So, I have very good manners.</p>",
+        "text":"<p>St. Elisabeth was a catholic school. I was taught by nuns, so I have very good manners.</p>",
         "classname": "noborder max75",
         "asset": {
           "media": "/assets/nun.png"
@@ -52,7 +52,7 @@
       {
         "startDate":"1992",
         "headline":"My first computer experience",
-        "text":"<p>In this year my neighbor allowed me to use his Amiga 500 for work and gaming.</p>",
+        "text":"<p>Back then my neighbor allowed me to use his Amiga 500 for work and gaming.</p>",
         "classname": "noborder",
         "asset": {
           "media": "/assets/amiga500.jpg"
@@ -79,7 +79,7 @@
       {
         "startDate":"2000,07",
         "headline":"My first own car",
-        "text":"<p>2000 was a very exciting year. I got my first own car. It was a Volkswagen.</p>",
+        "text":"<p>2000 was a very exciting year. I got my first own car - a Volkswagen.</p>",
         "classname": "noborder",
         "asset": {
           "media": "/assets/firstcar.png"
@@ -98,8 +98,8 @@
       {
         "startDate": "2001,09",
         "endDate": "2005,08",
-        "headline": "St. Pölten University of Applied Sciences",
-        "text": "<p>I studied Computersimulations and communications engineering in St. Pölten.</p>",
+        "headline": "St.&nbsp;Pölten University of Applied Sciences",
+        "text": "<p>I studied Communications and Simulation Engineering in St.&nbsp;Pölten, the capital of Lower Austria.</p>",
         "classname": "noborder",
         "asset": {
           "media": "/assets/fh-logo.svg" 
@@ -109,7 +109,7 @@
         "startDate": "2003,08",
         "endDate": "2004,02",
         "headline": "Erasmus - KTH Royal Institute of Technology",
-        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "text": "<p>I spent the fifth term of my studies in Stockholm at the KTH.</p>",
         "classname": "noborder",
         "asset": {
           "media": "/assets/kth-logo.svg" 
@@ -119,17 +119,17 @@
         "startDate": "2004,08",
         "endDate": "2005,05",
         "headline": "Internship",
-        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "text": "<p>During my internship I worked on the project <a target='_blank' href='http://bedarfshaltestelle.at'>&quot;Bedarfshaltestellen&quot; (On demand public transport systems)</a> and wrote my <a href='/projects/thesis'>thesis</a> on it.</p>",
         "classname": "noborder",
         "asset": {
-          "media": "/assets/kth-logo.svg" 
+          "media": "/assets/beha.jpg" 
         }
       },
       {  
         "startDate": "2005,08,30",
         "endDate": "2005,08,30",
         "headline": "Graduation",
-        "text": "<p>I graduated with good success and had the honour to give a brief speech at my own graduation.</p>",
+        "text": "<p>I graduated with good success from St.&nbsp;Pölten University of Applied Sciences and had the honour to give a brief speech at my graduation.</p>",
         "classname": "noborder",
         "asset": {
           "media": "/assets/sponsion.jpg" 
@@ -139,7 +139,7 @@
         "startDate": "2005,08",
         "endDate": "2007,07",
         "headline": "First Job",
-        "text": "<p>At PDTS I worked on a prepaid credit card sales platform. I learned a lot about relational databases and worked mostly with PLSQL and Java.</p>",
+        "text": "<p>At PDTS I worked on a prepaid credit card sales platform for MasterCard. I learned a lot about relational databases and worked mostly with PLSQL and Java.</p>",
         "classname": "noborder max75",
         "asset": {
           "media": "/assets/pdts-logo.gif" 
@@ -149,7 +149,7 @@
         "startDate": "2007,07",
         "endDate": "2007,07",
         "headline": "Switzerland",
-        "text": "<p>After working for two years in vienna I migrated to Switzerland.</p>",
+        "text": "<p>After working in Vienna for two years I migrated to Switzerland.</p>",
         "classname": "noborder",
         "asset": {
           "media": "/assets/switzerland.svg" 
@@ -159,32 +159,80 @@
         "startDate": "2007,08",
         "endDate": "2009,07",
         "headline": "BDH Solutions",
-        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
-        "classname": "noborder",
+        "text": "<p>At the <a hre='http://bdh.ch' target='_blank'>BDH</a> I had ownership of the product SEEK!, which was an HR tool for managing employees and remuneration.</p>",
+        "classname": "noborder max75",
         "asset": {
-          "media": "/assets/kth-logo.svg" 
+          "media": "/assets/seek.jpg" 
         }
       },
       {
         "startDate": "2009,06,06",
         "endDate": "2009,06,06",
         "headline": "Wedding",
-        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "text": "<p>&nbsp;</p>",
         "classname": "noborder",
         "asset": {
-          "media": "/assets/kth-logo.svg" 
+          "media": "/assets/wedding.jpg" 
         }
       },
       {
-        "startDate": "2003,08",
-        "endDate": "2004,02",
-        "headline": "Sympany",
-        "text": "<p>The fifth term of my studies, I spent in Stockholm at the KTH.</p>",
+        "startDate": "2009,08",
+        "endDate": "2014,05",
+        "headline": "Sympany - Health Insurances",
+        "text": "<p>I had an interesting time at <a href='http://www.sympany.ch' target='_blank'>Sympany</a> working on a lot of projects. The most interesting was of course the <a href='/projects/sympanyapp'>Sympany App</a>.</p>",
         "classname": "noborder",
         "asset": {
-          "media": "/assets/kth-logo.svg" 
+          "media": "/assets/sympany.png" 
         }
+      },
+      {
+        "startDate": "2011,09,21",
+        "endDate": "2011,09,21",
+        "headline": "Cedric was born",
+        "text": "<p>&nbsp;</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/babyboy.jpg" 
+        }
+      },
+      {
+        "startDate": "2014,06",
+        "endDate": "2014,07",
+        "headline": "Powel",
+        "text": "<p>Though I was very content at Sympany, I felt the urge to look into new stuff. My time at <a href='http://www.powel.com' target='_blank'>Powel</a> enabled me to look into the energy market, which was very interesting. It didn't work out as expected, though and Sympany had already made an offer for me to come back, which I accepted.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/powel.jpg" 
+        }
+      },
+      {
+        "startDate": "2014,08",
+        "endDate": "2016,05",
+        "headline": "Sympany - Health Insurances",
+        "text": "<p>In my second era at Sympany I worked officially as a Software Architect. In that time, I designed and developed most of the backend and frontend for the function &quot;Photograph and send invoices&quot;, modernized the continuous integration environment, helped standardizing the development process and did a lot of persuading the staff of the advantages of a DevOps culture. The second big project I lead to success was SOAng, a microservice system, based on Docker, Kubernetes and Fabric8 v2.</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/sympany.png" 
+        }
+      },
+      {
+        "startDate": "2014,11,10",
+        "endDate": "2014,11,10",
+        "headline": "Vivienne was born",
+        "text": "<p>&nbsp;</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/babygirl.jpg" 
+        }
+      },
+      {
+        
+        "startDate": "2016,06",
+        "endDate": "2016,06",
+        "headline": "What's next?"
       }
+
+
     ]
   }
 }
