@@ -4,7 +4,6 @@ time: 2015
 name: ImageConverter
 tags: python opencv rest flask
 summary: To process photographs of invoices made with the Sympany App efficiently, the uploaded photographs had to be converted before sending them to the OCR engine. Therefore the microservice "ImageConverter" was developed. 
-draft: false
 ---
 
 <carousel> 

@@ -5,7 +5,6 @@ name: Sympany App
 tags: web mobile ios android jee java vaadin gwt jpa ejb guice guava maven jaxb weblogic soap angularjs
 site: http://www.sympany.ch/app
 summary: Sympany App is the customer portal for the suisse health insurance company Sympany. The app helps customers to stay informed about their insurance policies and benefits. It eases the contact with Sympany. A very important feature is to photograph an invoice and upload it instead of sending it by mail.
-draft: false
 ---
 
 <carousel> 
