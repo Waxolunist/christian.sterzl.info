@@ -5,10 +5,11 @@ define(['./module'], function (controllers) {
     $scope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
       var oldUrlArr = oldUrl.split('#');
       var newUrlArr = newUrl.split('#');
-      if (oldUrlArr.length === 2 &&
-          oldUrlArr.length === newUrlArr.length && 
+      if (newUrlArr.length === 2 &&
+          ((newUrlArr.length !== oldUrlArr.length) ||
+          (oldUrlArr.length === newUrlArr.length && 
           oldUrlArr[0] === newUrlArr[0] && 
-          oldUrlArr[1] !== newUrlArr[1]) {
+          oldUrlArr[1] !== newUrlArr[1]))) {
         $route.reload();
       }
     });
