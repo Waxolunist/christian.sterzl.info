@@ -7,7 +7,7 @@ tags: mobile java gps embedded j2me latex
 summary: My thesis deals with alternative services in public transport in general and specifically with the project BEHA, a public on-demand bus service. Furthermore, it deals particularly with the location of vehicles, management of information and delay-prediction. The technical implementation of such services is of special interest. The thesis is written in german.
 ---
 
-<a class="download" name="thesis" title="Download the thesis here" rel="tooltip" href="/assets/DA_Sterzl.pdf">Download the thesis here</a>
+<a class="download" name="thesis" title="Download the thesis here" rel="tooltip" href="/assets/DA_Sterzl.pdf" target="_blank">Download the thesis here</a>
 
 # Dynamic routing and delay prediction of on demand public transport systems
 
