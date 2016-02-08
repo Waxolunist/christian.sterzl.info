@@ -226,7 +226,16 @@
         }
       },
       {
-        
+        "startDate": "2016,06",
+        "endDate": "2016,06",
+        "headline": "Relocating back to Vienna",
+        "text": "<p>&nbsp;</p>",
+        "classname": "noborder",
+        "asset": {
+          "media": "/assets/vienna.jpg" 
+        }
+      },
+      {
         "startDate": "2016,06",
         "endDate": "2016,06",
         "headline": "What's next?"

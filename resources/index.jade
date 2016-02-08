@@ -46,8 +46,13 @@ html(lang='en')
     .content-wrapper.grid.circles-overlap-width.center(ng-view)
     .footer-wrapper.grid.circles-overlap-width.center
       footer.grid__item.one-whole
-        a.rss(href='/feed.xml', target='_blank')
-          include ./images/iconic/svg/rss_alt.svg
+        a.icon.rss(href='/feed.xml', target='_blank')
+          include ./images/iconic/svg/rss-alt.svg
+        a.icon.github(href='http://github.com/waxolunist', target='_blank')
+          include ./images/iconic/svg/github.svg
+        a.icon.stackoverflow(href='http://stackoverflow.com/users/534858/waxolunist?tab=profile', target='_blank')
+          include ./images/iconic/svg/stackoverflow.svg
+    if debug
     if debug
       script(data-main='/js/main',src='/js/require.js')
     else
