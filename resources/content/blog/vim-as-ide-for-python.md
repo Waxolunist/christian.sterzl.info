@@ -273,7 +273,7 @@ For more shortcuts refer to the plugin documentation.
 
 ### Additional Resources
 
-You can find additional snippets on github. I added [http://vim.wikia.com/wiki/Script:2715](these).
+You can find additional snippets on github. I added [these](http://vim.wikia.com/wiki/Script:2715).
 
 ## Final Words
 
