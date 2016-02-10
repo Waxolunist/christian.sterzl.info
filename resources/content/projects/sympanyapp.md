@@ -13,6 +13,7 @@ summary: Sympany App is the customer portal for the suisse health insurance comp
   <carousel-item ng-attr-src="/assets/projects/sympanyapp/insurances.jpeg"></carousel-item>
   <carousel-item ng-attr-src="/assets/projects/sympanyapp/photograph.jpeg"></carousel-item>
   <carousel-item ng-attr-src="/assets/projects/sympanyapp/account.jpeg"></carousel-item>
+  <carousel-item ng-attr-src="/assets/projects/sympanyapp/charts.jpeg"></carousel-item>
 </carousel>
 
 
