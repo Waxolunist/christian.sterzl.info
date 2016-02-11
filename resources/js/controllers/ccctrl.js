@@ -34,5 +34,10 @@ define(['./module'], function (controllers) {
     $rootScope.isActive = true;
     loadContent($routeParams, $scope);
     $scope.path = $location.path();
+
+    //Google tracking
+    $scope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
+      ga('send', 'page', newUrl);
+    });
   }]);
 });
