@@ -177,9 +177,9 @@
       },
       {
         "startDate": "2009,08",
-        "endDate": "2014,05",
+        "endDate": "2016,05",
         "headline": "Sympany - Health Insurances",
-        "text": "<p>I had an interesting time at <a href='http://www.sympany.ch' target='_blank'>Sympany</a> working on a lot of projects. The most interesting was of course the <a href='/projects/sympanyapp'>Sympany App</a>.</p>",
+        "text": "<p>At <a href='http://www.sympany.ch' target='_blank'>Sympany</a> I worked as a Software Architect. In that time, I designed and developed most of the backend and frontend for the <a href='/projects/sympanyapp'>Sympany App</a>, modernized the continuous integration environment, helped standardizing the development process and did a lot of persuading the staff of the advantages of a DevOps culture. The second big project I lead to success was SOAng, a microservice system, based on Docker, Kubernetes and Fabric8 v2.</p>",
         "classname": "noborder",
         "asset": {
           "media": "/assets/sympany.png" 
@@ -193,26 +193,6 @@
         "classname": "noborder",
         "asset": {
           "media": "/assets/babyboy.jpg" 
-        }
-      },
-      {
-        "startDate": "2014,06",
-        "endDate": "2014,07",
-        "headline": "Powel",
-        "text": "<p>Though I was very content at Sympany, I felt the urge to look into new stuff. My time at <a href='http://www.powel.com' target='_blank'>Powel</a> enabled me to look into the energy market, which was very interesting. It didn't work out as expected, though and Sympany had already made an offer for me to come back, which I accepted.</p>",
-        "classname": "noborder",
-        "asset": {
-          "media": "/assets/powel.jpg" 
-        }
-      },
-      {
-        "startDate": "2014,08",
-        "endDate": "2016,05",
-        "headline": "Sympany - Health Insurances",
-        "text": "<p>In my second era at Sympany I worked officially as a Software Architect. In that time, I designed and developed most of the backend and frontend for the function &quot;Photograph and send invoices&quot;, modernized the continuous integration environment, helped standardizing the development process and did a lot of persuading the staff of the advantages of a DevOps culture. The second big project I lead to success was SOAng, a microservice system, based on Docker, Kubernetes and Fabric8 v2.</p>",
-        "classname": "noborder",
-        "asset": {
-          "media": "/assets/sympany.png" 
         }
       },
       {
