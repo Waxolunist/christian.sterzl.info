@@ -37,7 +37,9 @@ define(['./module'], function (controllers) {
 
     //Google tracking
     $scope.$on('$locationChangeSuccess', function(event, newUrl, oldUrl) {
-      ga('send', 'page', newUrl);
+      if(angular.isFunction(ga)) {
+        ga('send', 'pageview', newUrl);
+      }
     });
   }]);
 });
